@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <title>Solutions | SBTech</title>
+<meta name="description" content="SBTech solutions: enterprise cybersecurity, cloud security, AI automation, and managed security — senior-led, NIST-aligned, and built for data sovereignty.">
+
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        :root {
+            --fd: 'Plus Jakarta Sans', sans-serif;
+            --fb: 'Inter', sans-serif;
+            --bg: #060d1a;
+            --soft: #0a1628;
+            --card: rgba(10, 22, 40, .82);
+            --head: #fff;
+            --text: #c8deff;
+            --muted: #6b8cae;
+            --border: rgba(59, 126, 248, .18);
+            --primary: #3b7ef8;
+            --cyan: #00d4ff;
+            --shadow: rgba(0, 0, 0, .35)
+        }
+
+        html.light {
+            --bg: #f0f4fa;
+            --soft: #fff;
+            --card: rgba(255, 255, 255, .9);
+            --head: #071631;
+            --text: #17406f;
+            --muted: #476988;
+            --border: rgba(59, 126, 248, .18);
+            --primary: #1479ff;
+            --cyan: #18c6ff;
+            --shadow: rgba(9, 45, 92, .09)
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            font-family: var(--fb);
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--fd)
+        }
+
+        .page-bg {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            overflow: hidden;
+            background: var(--bg)
+        }
+
+        .grid-bg {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(0, 212, 255, .055) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 212, 255, .055) 1px, transparent 1px);
+            background-size: 70px 70px;
+            animation: gridMove 22s linear infinite
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(45px);
+            opacity: .5;
+            animation: floatOrb 9s ease-in-out infinite
+        }
+
+        .orb.one {
+            width: 420px;
+            height: 420px;
+            background: rgba(59, 126, 248, .35);
+            right: -120px;
+            top: 120px
+        }
+
+        .orb.two {
+            width: 360px;
+            height: 360px;
+            background: rgba(0, 212, 255, .22);
+            left: -120px;
+            top: 520px;
+            animation-delay: 2s
+        }
+
+        .orb.three {
+            width: 300px;
+            height: 300px;
+            background: rgba(120, 80, 255, .18);
+            right: 20%;
+            bottom: 10%;
+            animation-delay: 4s
+        }
+
+        @keyframes gridMove {
+            to {
+                transform: translate(70px, 70px)
+            }
+        }
+
+        @keyframes floatOrb {
+            50% {
+                transform: translateY(-35px) scale(1.08)
+            }
+        }
+
+        .hero {
+            padding: 165px 70px 90px;
+            min-height: 650px;
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 50px;
+            align-items: center
+        }
+
+        .badge {
+            display: inline-flex;
+            gap: 10px;
+            align-items: center;
+            padding: 12px 18px;
+            border: 1px solid rgba(0, 212, 255, .25);
+            background: rgba(0, 212, 255, .08);
+            color: var(--cyan);
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 800;
+            margin-bottom: 30px
+        }
+
+        .badge:before {
+            content: "";
+            width: 10px;
+            height: 10px;
+            background: var(--cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 14px var(--cyan)
+        }
+
+        .hero h1 {
+            font-size: clamp(46px, 7vw, 86px);
+            line-height: 1.02;
+            letter-spacing: -4px;
+            color: var(--head);
+            max-width: 900px;
+            margin-bottom: 24px
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, var(--primary), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent
+        }
+
+        .hero p {
+            max-width: 720px;
+            font-size: 19px;
+            line-height: 1.75;
+            color: var(--muted);
+            margin-bottom: 34px
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            text-decoration: none;
+            border-radius: 6px;
+            padding: 15px 25px;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: .8px
+        }
+
+        .btn.primary {
+            background: linear-gradient(135deg, var(--primary), var(--cyan));
+            color: #fff;
+            box-shadow: 0 20px 45px rgba(59, 126, 248, .28)
+        }
+
+        .btn.ghost {
+            border: 1px solid var(--border);
+            color: var(--text);
+            background: rgba(255, 255, 255, .03)
+        }
+
+        .visual {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 25px;
+            box-shadow: 0 30px 80px var(--shadow);
+            position: relative;
+            overflow: hidden
+        }
+
+        .visual:before {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(120deg, transparent, var(--cyan), transparent);
+            opacity: .18;
+            animation: shine 4s linear infinite
+        }
+
+        @keyframes shine {
+            to {
+                transform: translateX(100%)
+            }
+        }
+
+        .dashboard {
+            position: relative;
+            z-index: 1
+        }
+
+        .dash-top {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            color: var(--muted);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px
+        }
+
+        .dash-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px
+        }
+
+        .dash-card {
+            background: rgba(59, 126, 248, .08);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px
+        }
+
+        .dash-card i {
+            color: var(--cyan);
+            font-size: 24px;
+            margin-bottom: 14px
+        }
+
+        .dash-card h3 {
+            color: var(--head);
+            font-size: 22px
+        }
+
+        .dash-card p {
+            font-size: 13px;
+            margin: 6px 0 0;
+            color: var(--muted)
+        }
+
+        .section {
+            padding: 90px 70px
+        }
+
+        .alt {
+            background: var(--soft);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border)
+        }
+
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 30px;
+            margin-bottom: 45px
+        }
+
+        .section-head h2 {
+            font-size: 44px;
+            letter-spacing: -2px;
+            color: var(--head)
+        }
+
+        .section-head p {
+            max-width: 520px;
+            color: var(--muted);
+            line-height: 1.7
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px
+        }
+
+        .stat {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center
+        }
+
+        .stat h3 {
+            font-size: 42px;
+            color: var(--head)
+        }
+
+        .stat p {
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 26px
+        }
+
+        .solution-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 36px;
+            min-height: 360px;
+            box-shadow: 0 24px 60px var(--shadow);
+            position: relative;
+            overflow: hidden;
+            transition: .35s
+        }
+
+        .solution-card:after {
+            content: "";
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            right: -120px;
+            top: -120px;
+            background: radial-gradient(circle, rgba(0, 212, 255, .18), transparent 70%)
+        }
+
+        .solution-card:hover {
+            transform: translateY(-9px);
+            border-color: var(--cyan);
+            box-shadow: 0 35px 90px rgba(0, 118, 255, .18)
+        }
+
+        .icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            background: rgba(59, 126, 248, .12);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cyan);
+            font-size: 28px;
+            margin-bottom: 24px
+        }
+
+        .solution-card h3 {
+            font-size: 30px;
+            color: var(--head);
+            margin-bottom: 12px
+        }
+
+        .solution-card p {
+            color: var(--muted);
+            line-height: 1.75;
+            margin-bottom: 22px
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px
+        }
+
+        .tags span {
+            font-size: 12px;
+            color: var(--cyan);
+            background: rgba(0, 212, 255, .08);
+            border: 1px solid rgba(0, 212, 255, .16);
+            padding: 6px 10px;
+            border-radius: 5px;
+            font-weight: 700
+        }
+
+        .learn {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 1px
+        }
+
+        .process {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            overflow: hidden
+        }
+
+        .step {
+            background: var(--card);
+            padding: 30px;
+            min-height: 220px
+        }
+
+        .step strong {
+            font-size: 34px;
+            color: rgba(59, 126, 248, .5)
+        }
+
+        .step h3 {
+            color: var(--head);
+            margin: 16px 0 10px;
+            font-size: 19px
+        }
+
+        .step p {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.7
+        }
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px
+        }
+
+        .tech {
+            background: var(--card);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 14px 20px;
+            border-radius: 50px;
+            font-weight: 800;
+            transition: .3s
+        }
+
+        .tech:hover {
+            background: var(--primary);
+            color: #fff;
+            transform: translateY(-4px)
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px
+        }
+
+        .why {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px;
+            transition: .3s
+        }
+
+        .why:hover {
+            transform: translateY(-7px);
+            border-color: var(--cyan)
+        }
+
+        .why i {
+            color: var(--cyan);
+            font-size: 28px;
+            margin-bottom: 18px
+        }
+
+        .why h3 {
+            color: var(--head);
+            font-size: 20px;
+            margin-bottom: 10px
+        }
+
+        .why p {
+            color: var(--muted);
+            line-height: 1.7
+        }
+
+        .cta {
+            margin: 0 70px 100px;
+            padding: 55px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #071631, #0b3269);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+            border: 1px solid rgba(0, 212, 255, .2);
+            color: #fff
+        }
+
+        .cta h2 {
+            font-size: 40px;
+            letter-spacing: -2px;
+            margin-bottom: 12px
+        }
+
+        .cta p {
+            color: #c9ddf6;
+            max-width: 700px;
+            line-height: 1.7
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: .8s ease
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        .dash-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .dash-card {
+            background: rgba(255, 255, 255, .05);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: .35s;
+            backdrop-filter: blur(12px);
+        }
+
+        .dash-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--cyan);
+            box-shadow: 0 20px 45px rgba(0, 212, 255, .15);
+        }
+
+        .dash-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 10px;
+            margin: 0 auto 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            transition: .35s;
+        }
+
+        .dash-card:hover .dash-icon {
+            transform: rotate(8deg) scale(1.08);
+        }
+
+        .dash-card h3 {
+            color: var(--head);
+            font-size: 22px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .dash-card p {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .security {
+            background: rgba(0, 230, 118, .12);
+            color: #00E676;
+            border: 1px solid rgba(0, 230, 118, .25);
+        }
+
+        .ai {
+            background: rgba(156, 39, 176, .12);
+            color: #BA68C8;
+            border: 1px solid rgba(186, 104, 200, .25);
+        }
+
+        .cloud {
+            background: rgba(33, 150, 243, .12);
+            color: #42A5F5;
+            border: 1px solid rgba(66, 165, 245, .25);
+        }
+
+        .ops {
+            background: rgba(255, 152, 0, .12);
+            color: #FFB74D;
+            border: 1px solid rgba(255, 183, 77, .25);
+        }
+
+        @media(max-width:1100px) {
+            .hero {
+                grid-template-columns: 1fr
+            }
+
+            .visual {
+                max-width: 650px
+            }
+
+            .stats,
+            .why-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .solutions-grid {
+                grid-template-columns: 1fr
+            }
+
+            .process {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+
+        @media(max-width:700px) {
+
+            .hero,
+            .section {
+                padding-left: 24px;
+                padding-right: 24px
+            }
+
+            .hero {
+                padding-top: 140px
+            }
+
+            .section-head,
+            .cta {
+                flex-direction: column;
+                align-items: flex-start
+            }
+
+            .stats,
+            .why-grid,
+            .process {
+                grid-template-columns: 1fr
+            }
+
+            .cta {
+                margin-left: 24px;
+                margin-right: 24px;
+                padding: 34px
+            }
+
+            .hero h1 {
+                letter-spacing: -2px
+            }
+        }
+
+        .dash-icon.security {
+            background: rgba(0, 230, 118, .16);
+            border: 1px solid rgba(0, 230, 118, .35);
+        }
+
+        .dash-icon.security i {
+            color: #00E676;
+        }
+
+        .dash-icon.ai {
+            background: rgba(156, 39, 176, .16);
+            border: 1px solid rgba(186, 104, 200, .35);
+        }
+
+        .dash-icon.ai i {
+            color: #BA68C8;
+        }
+
+        .dash-icon.cloud {
+            background: rgba(33, 150, 243, .16);
+            border: 1px solid rgba(66, 165, 245, .35);
+        }
+
+        .dash-icon.cloud i {
+            color: #42A5F5;
+        }
+
+        .dash-icon.ops {
+            background: rgba(255, 152, 0, .16);
+            border: 1px solid rgba(255, 183, 77, .35);
+        }
+
+        .dash-icon.ops i {
+            color: #FFB74D;
+        }
+
+        .icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 25px;
+            transition: .35s;
+            border: 1px solid transparent;
+        }
+
+        .icon i {
+            font-size: 36px;
+            transition: .35s;
+        }
+
+        .solution-card:hover .icon {
+            transform: translateY(-8px) rotate(8deg) scale(1.08);
+        }
+
+        .solution-card:hover .icon i {
+            transform: scale(1.15);
+        }
+
+        /* Cyber */
+
+        .icon.cyber {
+            background: rgba(0, 230, 118, .12);
+            border-color: rgba(0, 230, 118, .25);
+        }
+
+        .icon.cyber i {
+            color: #00E676;
+        }
+
+        /* AI */
+
+        .icon.ai {
+            background: rgba(156, 39, 176, .12);
+            border-color: rgba(186, 104, 200, .25);
+        }
+
+        .icon.ai i {
+            color: #BA68C8;
+        }
+
+        /* Cloud */
+
+        .icon.cloud {
+            background: rgba(33, 150, 243, .12);
+            border-color: rgba(66, 165, 245, .25);
+        }
+
+        .icon.cloud i {
+            color: #42A5F5;
+        }
+
+        /* Managed */
+
+        .icon.managed {
+            background: rgba(255, 152, 0, .12);
+            border-color: rgba(255, 183, 77, .25);
+        }
+
+        .icon.managed i {
+            color: #FFB74D;
+        }
+
+        /* Software */
+
+        .icon.software {
+            background: rgba(244, 67, 54, .12);
+            border-color: rgba(239, 83, 80, .25);
+        }
+
+        .icon.software i {
+            color: #EF5350;
+        }
+
+        /* ERP */
+
+        .icon.erp {
+            background: rgba(0, 188, 212, .12);
+            border-color: rgba(38, 198, 218, .25);
+        }
+
+        .icon.erp i {
+            color: #26C6DA;
+        }
+
+        .why {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 35px 30px;
+            transition: .35s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why:hover {
+            transform: translateY(-8px);
+            border-color: var(--cyan);
+            box-shadow: 0 25px 60px rgba(0, 212, 255, .12);
+        }
+
+        .why-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            transition: .35s;
+        }
+
+        .why-icon i {
+            font-size: 36px;
+        }
+
+        .why:hover .why-icon {
+            transform: rotate(8deg) scale(1.08);
+        }
+
+        .why h3 {
+            color: var(--head);
+            font-size: 24px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .why p {
+            color: var(--muted);
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        /* Security */
+
+        .why-icon.security {
+            background: rgba(0, 230, 118, .12);
+            border: 1px solid rgba(0, 230, 118, .25);
+        }
+
+        .why-icon.security i {
+            color: #00E676;
+        }
+
+        /* AI */
+
+        .why-icon.ai {
+            background: rgba(156, 39, 176, .12);
+            border: 1px solid rgba(186, 104, 200, .25);
+        }
+
+        .why-icon.ai i {
+            color: #BA68C8;
+        }
+
+        /* Scalable */
+
+        .why-icon.scalable {
+            background: rgba(33, 150, 243, .12);
+            border: 1px solid rgba(66, 165, 245, .25);
+        }
+
+        .why-icon.scalable i {
+            color: #42A5F5;
+        }
+
+        /* Support */
+
+        .why-icon.support {
+            background: rgba(255, 152, 0, .12);
+            border: 1px solid rgba(255, 183, 77, .25);
+        }
+
+        .why-icon.support i {
+            color: #FFA726;
+        }
+
+        /* Business */
+
+        .why-icon.business {
+            background: rgba(244, 67, 54, .12);
+            border: 1px solid rgba(239, 83, 80, .25);
+        }
+
+        .why-icon.business i {
+            color: #EF5350;
+        }
+
+        /* Global */
+
+        .why-icon.global {
+            background: rgba(0, 188, 212, .12);
+            border: 1px solid rgba(38, 198, 218, .25);
+        }
+
+        .why-icon.global i {
+            color: #26C6DA;
+        }
+        /* Dashboard responsive fix */
+.visual{
+  width:100%;
+  max-width:620px;
+  margin:0 auto;
+}
+
+.dash-grid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:18px;
+}
+
+.dash-card{
+  min-width:0;
+  text-align:center;
+  padding:28px 18px;
+}
+
+.dash-card h3,
+.dash-card p{
+  word-break:normal;
+  overflow-wrap:break-word;
+}
+
+
+@media(max-width:900px){
+  .visual{
+    max-width:100%;
+  }
+
+  .dash-grid{
+    grid-template-columns:repeat(2, 1fr);
+    gap:14px;
+  }
+
+  .dash-card{
+    padding:24px 14px;
+  }
+
+  .dash-icon{
+    width:64px;
+    height:64px;
+    margin-bottom:16px;
+  }
+
+  .dash-icon i{
+    font-size:28px;
+  }
+
+  .dash-card h3{
+    font-size:18px;
+  }
+
+  .dash-card p{
+    font-size:13px;
+  }
+}
+
+/* Mobile */
+@media(max-width:520px){
+  .visual{
+    padding:18px;
+    border-radius:16px;
+  }
+
+  .dash-top{
+    flex-direction:column;
+    gap:8px;
+    text-align:center;
+  }
+
+  .dash-grid{
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+
+  .dash-card{
+    padding:22px 16px;
+  }
+
+  .dash-icon{
+    width:62px;
+    height:62px;
+  }
+}
+.logo-light {
+  display: none;
+}
+
+.logo-dark {
+  display: block;
+}
+
+html.light .logo-dark {
+  display: none;
+}
+
+html.light .logo-light {
+  display: block;
+}
+.logo-img{
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+}
+    </style>
+<link rel="stylesheet" href="css/premium.css">
+</head>
+
+<body>
+    <div class="page-bg">
+        <div class="grid-bg"></div>
+        <div class="orb one"></div>
+        <div class="orb two"></div>
+        <div class="orb three"></div>
+    </div>
+
+    <header class="site-header" id="siteHeader">
+        <nav class="sb-navbar">
+            <a href="index.html" class="logo-text">
+  <img src="assets/images/logo-dark.png" class="logo-img logo-dark" alt="SBTech Logo">
+  <img src="assets/images/logo-light.png" class="logo-img logo-light" alt="SBTech Logo">
+</a>
+
+            <ul class="sb-nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="solutions.html">Solutions</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="industries.html">Industry</a></li>
+                <li><a href="insights.html">Insights</a></li>
+      <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="sb-nav-actions">
+                <a href="contact.html" class="sb-nav-cta">Get Started</a>
+
+               <button class="sb-hamburger" id="hamburgerBtn" onclick="toggleMenu()" type="button">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="sb-mobile-menu" id="mobileMenu">
+        <a href="index.html" onclick="closeMenu()">Home</a>
+        <a href="solutions.html" onclick="closeMenu()">Solutions</a>
+        <a href="services.html" onclick="closeMenu()">Services</a>
+        <a href="industries.html" onclick="closeMenu()">Industries</a>
+        <a href="about.html" onclick="closeMenu()">Company</a>
+        <a href="insights.html" onclick="closeMenu()">Insights</a>
+  <a href="contact.html" onclick="closeMenu()" class="mobile-cta">Get Started →</a>
+    </div>
+
+    <main>
+        <section class="hero">
+            <div>
+                <div class="badge">Enterprise Technology Solutions</div>
+                <h1>Secure, Automate & Scale With <span>SBTech Solutions.</span></h1>
+                <p>We help businesses build secure infrastructure, automate workflows, modernize operations, and deploy
+                    scalable digital systems powered by cybersecurity, AI, cloud, and enterprise software.</p>
+                <div class="hero-actions">
+                    <a href="contact.html" class="btn primary">Talk to Expert <i class="fas fa-arrow-right"></i></a>
+                    <a href="#solutions" class="btn ghost">Explore Solutions</a>
+                </div>
+            </div>
+
+            <div class="visual reveal">
+                <div class="dashboard">
+                    <div class="dash-top">
+                        <span>SBTECH COMMAND CENTER</span>
+                        <span style="color:var(--cyan)">LIVE</span>
+                    </div>
+                    <div class="dash-grid">
+
+                        <div class="dash-card">
+                            <div class="dash-icon security">
+                                <i class="fas fa-shield-halved"></i>
+                            </div>
+                            <h3>Cybersecurity</h3>
+                            <p>Advanced Threat Protection</p>
+                        </div>
+
+                        <div class="dash-card">
+                            <div class="dash-icon ai">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h3>AI Automation</h3>
+                            <p>Smart Workflow Automation</p>
+                        </div>
+
+                        <div class="dash-card">
+                            <div class="dash-icon cloud">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <h3>Cloud Security</h3>
+                            <p>Secure Cloud Infrastructure</p>
+                        </div>
+
+                        <div class="dash-card">
+                            <div class="dash-icon ops">
+                                <i class="fas fa-gears"></i>
+                            </div>
+                            <h3>Managed IT</h3>
+                            <p>24×7 Monitoring & Support</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section reveal">
+            <div class="stats">
+                <div class="stat">
+                    <h3 data-count="24">0</h3>
+                    <p>24/7 Monitoring</p>
+                </div>
+                <div class="stat">
+                    <h3 data-count="99">0</h3>
+                    <p>System Reliability</p>
+                </div>
+                <div class="stat">
+                    <h3 data-count="360">0</h3>
+                    <p>Technology Coverage</p>
+                </div>
+                <div class="stat">
+                    <h3 data-count="100">0</h3>
+                    <p>Security Focus</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section alt" id="solutions">
+            <div class="section-head reveal">
+                <h2>Core Solutions</h2>
+                <p>Integrated solutions designed for businesses that need secure systems, intelligent automation, and
+                    scalable digital transformation.</p>
+            </div>
+
+            <div class="solutions-grid">
+
+                <!-- Cybersecurity -->
+                <div class="solution-card reveal">
+                    <div class="icon cyber">
+                        <i class="fas fa-shield-halved"></i>
+                    </div>
+
+                    <h3>Cybersecurity</h3>
+
+                    <p>
+                        Protect your organization against evolving cyber threats with enterprise-grade
+                        security solutions, vulnerability assessments, penetration testing,
+                        security monitoring, and compliance management.
+                    </p>
+
+                    <div class="tags">
+                        <span>VAPT</span>
+                        <span>Threat Detection</span>
+                        <span>Risk Assessment</span>
+                        <span>Compliance</span>
+                    </div>
+
+                    <a href="contact.html" class="learn">
+                        Explore Solution <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- AI -->
+                <div class="solution-card reveal">
+                    <div class="icon ai">
+                        <i class="fas fa-robot"></i>
+                    </div>
+
+                    <h3>AI Automation</h3>
+
+                    <p>
+                        Improve productivity with AI-powered automation, intelligent assistants,
+                        workflow optimization, chatbots, predictive analytics,
+                        and business process automation.
+                    </p>
+
+                    <div class="tags">
+                        <span>AI Agents</span>
+                        <span>Automation</span>
+                        <span>Chatbots</span>
+                        <span>Analytics</span>
+                    </div>
+
+                    <a href="contact.html" class="learn">
+                        Explore Solution <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Cloud -->
+                <div class="solution-card reveal">
+                    <div class="icon cloud">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+
+                    <h3>Cloud Security</h3>
+
+                    <p>
+                        Secure cloud environments across AWS, Microsoft Azure,
+                        and Google Cloud with identity management,
+                        infrastructure monitoring, backup, and disaster recovery.
+                    </p>
+
+                    <div class="tags">
+                        <span>AWS</span>
+                        <span>Azure</span>
+                        <span>Google Cloud</span>
+                        <span>Backup</span>
+                    </div>
+
+                    <a href="contact.html" class="learn">
+                        Explore Solution <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Managed -->
+                <div class="solution-card reveal">
+                    <div class="icon managed">
+                        <i class="fas fa-headset"></i>
+                    </div>
+
+                    <h3>Managed Security</h3>
+
+                    <p>
+                        24×7 managed security operations with proactive monitoring,
+                        incident response, endpoint protection,
+                        reporting, and continuous security improvements.
+                    </p>
+
+                    <div class="tags">
+                        <span>24×7 SOC</span>
+                        <span>Monitoring</span>
+                        <span>Incident Response</span>
+                        <span>Reporting</span>
+                    </div>
+
+                    <a href="contact.html" class="learn">
+                        Explore Solution <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Software -->
+                <div class="solution-card reveal">
+                    <div class="icon software">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+
+                    <h3>Custom Software Development</h3>
+
+                    <p>
+                        Build scalable web applications, enterprise platforms,
+                        SaaS products, mobile applications,
+                        dashboards, and digital business solutions tailored to your needs.
+                    </p>
+
+                    <div class="tags">
+                        <span>Web Apps</span>
+                        <span>Mobile Apps</span>
+                        <span>SaaS</span>
+                        <span>Enterprise</span>
+                    </div>
+
+                    <a href="contact.html" class="learn">
+                        Explore Solution <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- ERP -->
+                <div class="solution-card reveal">
+                    <div class="icon erp">
+                        <i class="fas fa-diagram-project"></i>
+                    </div>
+
+                    <h3>ERP & Business Platforms</h3>
+
+                    <p>
+                        Streamline operations with custom ERP, CRM,
+                        HRM, finance, inventory,
+                        healthcare, and education management systems built for growth.
+                    </p>
+
+                    <div class="tags">
+                        <span>ERP</span>
+                        <span>CRM</span>
+                        <span>HRM</span>
+                        <span>Finance</span>
+                    </div>
+
+                    <a href="contact.html" class="learn">
+                        Explore Solution <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-head reveal">
+                <h2>How We Work</h2>
+                <p>A clear delivery process that reduces risk and ensures secure, scalable implementation.</p>
+            </div>
+
+            <div class="process reveal">
+                <div class="step"><strong>01</strong>
+                    <h3>Discover</h3>
+                    <p>We understand goals, risks, workflows, users, and infrastructure.</p>
+                </div>
+                <div class="step"><strong>02</strong>
+                    <h3>Plan</h3>
+                    <p>We define scope, architecture, timeline, and technical roadmap.</p>
+                </div>
+                <div class="step"><strong>03</strong>
+                    <h3>Build</h3>
+                    <p>We design, develop, integrate, secure, and test the solution.</p>
+                </div>
+                <div class="step"><strong>04</strong>
+                    <h3>Deploy</h3>
+                    <p>We launch safely with performance, backup, and monitoring checks.</p>
+                </div>
+                <div class="step"><strong>05</strong>
+                    <h3>Support</h3>
+                    <p>We provide continuous improvement, monitoring, and technical support.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section alt">
+            <div class="section-head reveal">
+                <h2>Technology Expertise</h2>
+                <p>Modern tools and platforms for secure, scalable digital ecosystems.</p>
+            </div>
+            <div class="tech-list reveal">
+                <div class="tech">AWS</div>
+                <div class="tech">Azure</div>
+                <div class="tech">Google Cloud</div>
+                <div class="tech">Docker</div>
+                <div class="tech">Kubernetes</div>
+                <div class="tech">React</div>
+                <div class="tech">Node.js</div>
+                <div class="tech">Python</div>
+                <div class="tech">MongoDB</div>
+                <div class="tech">AI Agents</div>
+                <div class="tech">DevOps</div>
+                <div class="tech">Cybersecurity</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-head reveal">
+                <h2>Why Choose SBTech</h2>
+                <p>We combine security-first thinking with practical technology execution.</p>
+            </div>
+
+            <div class="why-grid">
+
+                <!-- Security -->
+                <div class="why reveal">
+                    <div class="why-icon security">
+                        <i class="fas fa-shield-halved"></i>
+                    </div>
+
+                    <h3>Security First</h3>
+
+                    <p>
+                        Every solution is designed with enterprise-grade security,
+                        compliance, privacy, and proactive threat protection from day one.
+                    </p>
+                </div>
+
+                <!-- AI -->
+                <div class="why reveal">
+                    <div class="why-icon ai">
+                        <i class="fas fa-brain"></i>
+                    </div>
+
+                    <h3>AI Powered Innovation</h3>
+
+                    <p>
+                        Leverage artificial intelligence and intelligent automation
+                        to streamline operations and increase business productivity.
+                    </p>
+                </div>
+
+                <!-- Architecture -->
+                <div class="why reveal">
+                    <div class="why-icon scalable">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+
+                    <h3>Scalable Architecture</h3>
+
+                    <p>
+                        Future-ready platforms built to grow with your business,
+                        ensuring high performance and long-term scalability.
+                    </p>
+                </div>
+
+                <!-- Support -->
+                <div class="why reveal">
+                    <div class="why-icon support">
+                        <i class="fas fa-headset"></i>
+                    </div>
+
+                    <h3>24×7 Expert Support</h3>
+
+                    <p>
+                        Dedicated technical experts provide continuous monitoring,
+                        maintenance, and rapid issue resolution whenever you need us.
+                    </p>
+                </div>
+
+                <!-- Business -->
+                <div class="why reveal">
+                    <div class="why-icon business">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+
+                    <h3>Business Driven</h3>
+
+                    <p>
+                        Every project focuses on measurable business outcomes,
+                        efficiency, digital growth, and return on investment.
+                    </p>
+                </div>
+
+                <!-- Global -->
+                <div class="why reveal">
+                    <div class="why-icon global">
+                        <i class="fas fa-earth-americas"></i>
+                    </div>
+
+                    <h3>Global Ready Solutions</h3>
+
+                    <p>
+                        Cloud-native systems designed for multi-region deployment,
+                        enterprise workloads, and international business operations.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <div class="cta reveal">
+            <div>
+                <h2>Ready to secure and scale your digital ecosystem?</h2>
+                <p>Talk to SBTech experts and discover the right cybersecurity, AI, cloud, or software solution for your
+                    organization.</p>
+            </div>
+            <a href="contact.html" class="btn primary">Get Started</a>
+        </div>
+    </main>
+
+    <footer class="sb-footer">
+        <div class="sb-footer-grid">
+
+            <div class="sb-footer-brand">
+               <a href="index.html" class="logo-text">
+  <img src="assets/images/logo-dark.png" class="logo-img logo-dark" alt="SBTech Logo">
+  <img src="assets/images/logo-light.png" class="logo-img logo-light" alt="SBTech Logo">
+</a>
+
+                <p>
+                    SBTech delivers enterprise cybersecurity, AI automation,
+                    cloud security, managed IT, and digital transformation solutions.
+                </p>
+
+                            </div>
+
+            <div class="sb-footer-col">
+                <h4>Solutions</h4>
+                <a href="solutions.html">Cybersecurity</a>
+                <a href="solutions.html">AI Automation</a>
+                <a href="solutions.html">Cloud Security</a>
+                <a href="solutions.html">Managed Security</a>
+            </div>
+
+            <div class="sb-footer-col">
+                <h4>Company</h4>
+                <a href="about.html">About Us</a>
+                <a href="services.html">Services</a>
+                <a href="industries.html">Industries</a>
+                <a href="insights.html">Insights</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+           <div class="sb-footer-col">
+        <h4>Contact</h4>
+
+        <p>
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:info@sbtech.ca">info@sbtech.ca</a>
+        </p>
+
+        <p>
+          <i class="fas fa-phone"></i>
+          <a href="tel:+14168023794">(416) 802-3794</a>
+        </p>
+
+        <p>
+          <i class="fas fa-location-dot"></i>
+        100 Mural St, Suite 100
+Richmond Hill, ON L4B 1J3
+        </p>
+
+        <a href="contact.html" class="footer-contact-btn">
+          Talk to an Expert
+        </a>
+      </div>
+
+    </div>
+
+        </div>
+
+        <div class="sb-footer-bottom">
+            <p>© <span id="copyrightYear"></span> SBTech. All rights reserved.</p>
+
+            <div>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms.html">Terms</a>
+                <a href="cookies.html">Cookies</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/navbar.js"></script>
+    <script src="js/footer.js"></script>
+
+    <script>
+        const reveals = document.querySelectorAll(".reveal");
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add("show");
+            });
+        }, { threshold: .15 });
+        reveals.forEach(el => observer.observe(el));
+
+        let counted = false;
+        function runCounters() {
+            if (counted) return;
+            const stats = document.querySelector(".stats");
+            if (!stats) return;
+            const top = stats.getBoundingClientRect().top;
+            if (top < window.innerHeight - 80) {
+                counted = true;
+                document.querySelectorAll("[data-count]").forEach(el => {
+                    const target = +el.dataset.count;
+                    let current = 0;
+                    const step = Math.max(1, Math.ceil(target / 45));
+                    const timer = setInterval(() => {
+                        current += step;
+                        if (current >= target) { current = target; clearInterval(timer) }
+                        el.textContent = target === 99 ? current + ".99%" : target === 24 ? current + "/7" : current + "+";
+                    }, 28);
+                });
+            }
+        }
+        window.addEventListener("scroll", runCounters);
+        runCounters();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+:root {
+  --bg-color: #061322;
+  --text-color: #ffffff;
+  --card-bg: rgba(255, 255, 255, 0.06);
+  --border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.light-mode {
+  --bg-color: #f7fbff;
+  --text-color: #061322;
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --border-color: rgba(0, 80, 160, 0.15);
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+}

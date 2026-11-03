@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+<title>Industries | SBTech</title>
+<meta name="description" content="SBTech serves financial services, healthcare, manufacturing, energy, commercial real estate, and professional services with audit-ready security and managed technology.">
+
+<link rel="stylesheet" href="css/navbar.css">
+<link rel="stylesheet" href="css/footer.css">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+--fd:'Plus Jakarta Sans',sans-serif;--fb:'Inter',sans-serif;
+--bg:#060d1a;--soft:#0a1628;--card:rgba(10,22,40,.86);
+--head:#fff;--text:#c8deff;--muted:#6b8cae;
+--border:rgba(59,126,248,.18);--primary:#3b7ef8;--cyan:#00d4ff;
+--shadow:rgba(0,0,0,.35)
+}
+
+html.light{
+--bg:#f0f4fa;--soft:#fff;--card:rgba(255,255,255,.92);
+--head:#071631;--text:#17406f;--muted:#476988;
+--border:rgba(59,126,248,.18);--primary:#1479ff;--cyan:#18c6ff;
+--shadow:rgba(9,45,92,.08)
+}
+
+body{background:var(--bg);color:var(--text);overflow-x:hidden;font-family:var(--fb);line-height:1.6}
+h1,h2,h3,h4,h5,h6{font-family:var(--fd)}
+
+.page-bg{position:fixed;inset:0;z-index:-1;background:var(--bg);overflow:hidden}
+.grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(0,212,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,.055) 1px,transparent 1px);background-size:70px 70px;animation:gridMove 22s linear infinite}
+.orb{position:absolute;border-radius:50%;filter:blur(45px);opacity:.5;animation:floatOrb 9s ease-in-out infinite}
+.orb.one{width:420px;height:420px;background:rgba(59,126,248,.34);right:-120px;top:120px}
+.orb.two{width:360px;height:360px;background:rgba(0,212,255,.20);left:-120px;top:580px;animation-delay:2s}
+.orb.three{width:300px;height:300px;background:rgba(160,80,255,.18);right:20%;bottom:10%;animation-delay:4s}
+@keyframes gridMove{to{transform:translate(70px,70px)}}
+@keyframes floatOrb{50%{transform:translateY(-35px) scale(1.08)}}
+
+.hero{
+padding:165px 70px 95px;
+min-height:650px;
+display:grid;
+grid-template-columns:1.1fr .9fr;
+gap:50px;
+align-items:center;
+}
+
+.badge{
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:12px 18px;
+border:1px solid rgba(0,212,255,.25);
+background:rgba(0,212,255,.08);
+color:var(--cyan);
+font-size:12px;
+letter-spacing:1.5px;
+text-transform:uppercase;
+font-weight:800;
+margin-bottom:30px;
+}
+
+.badge:before{
+content:"";
+width:10px;
+height:10px;
+background:var(--cyan);
+border-radius:50%;
+box-shadow:0 0 14px var(--cyan);
+}
+
+.hero h1{
+font-size:clamp(46px,7vw,86px);
+line-height:1.02;
+letter-spacing:-4px;
+color:var(--head);
+max-width:940px;
+margin-bottom:24px;
+}
+
+.hero h1 span{
+background:linear-gradient(90deg,var(--primary),var(--cyan));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+max-width:760px;
+font-size:19px;
+line-height:1.75;
+color:var(--muted);
+margin-bottom:34px;
+}
+
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+
+.btn{
+display:inline-flex;
+align-items:center;
+gap:9px;
+text-decoration:none;
+border-radius:6px;
+padding:15px 25px;
+font-weight:800;
+text-transform:uppercase;
+font-size:13px;
+letter-spacing:.8px;
+}
+
+.btn.primary{
+background:linear-gradient(135deg,var(--primary),var(--cyan));
+color:#fff;
+box-shadow:0 20px 45px rgba(59,126,248,.28)
+}
+
+.btn.ghost{
+border:1px solid var(--border);
+color:var(--text);
+background:rgba(255,255,255,.03)
+}
+
+.hero-panel{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:20px;
+padding:28px;
+box-shadow:0 30px 80px var(--shadow);
+position:relative;
+overflow:hidden;
+}
+
+.hero-panel:before{
+content:"";
+position:absolute;
+inset:-2px;
+background:linear-gradient(120deg,transparent,var(--cyan),transparent);
+opacity:.15;
+animation:shine 4s linear infinite;
+}
+
+@keyframes shine{to{transform:translateX(100%)}}
+
+.panel-inner{position:relative;z-index:1}
+.panel-top{display:flex;justify-content:space-between;margin-bottom:25px;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:1px}
+
+.panel-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:16px;
+}
+
+.panel-card{
+background:rgba(59,126,248,.08);
+border:1px solid var(--border);
+border-radius:16px;
+padding:24px;
+text-align:center;
+}
+
+.panel-card i{font-size:34px;margin-bottom:14px}
+.panel-card h3{color:var(--head);font-size:22px;margin-bottom:6px}
+.panel-card p{color:var(--muted);font-size:13px;line-height:1.5}
+
+.panel-card:nth-child(1) i{color:#00E676}
+.panel-card:nth-child(2) i{color:#BA68C8}
+.panel-card:nth-child(3) i{color:#42A5F5}
+.panel-card:nth-child(4) i{color:#FFB74D}
+
+.section{padding:95px 70px;background:var(--bg)}
+.section.alt{background:var(--soft);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+
+.section-head{
+display:flex;
+justify-content:space-between;
+align-items:end;
+gap:30px;
+margin-bottom:45px;
+}
+
+.section-head h2{
+font-size:44px;
+letter-spacing:-2px;
+color:var(--head);
+}
+
+.section-head p{
+max-width:560px;
+color:var(--muted);
+line-height:1.7;
+}
+
+.industries-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:26px;
+}
+
+.industry-card{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:18px;
+padding:34px;
+min-height:350px;
+box-shadow:0 24px 60px var(--shadow);
+position:relative;
+overflow:hidden;
+transition:.35s ease;
+}
+
+.industry-card:after{
+content:"";
+position:absolute;
+width:250px;
+height:250px;
+right:-120px;
+top:-120px;
+background:radial-gradient(circle,rgba(0,212,255,.16),transparent 70%);
+}
+
+.industry-card:hover{
+transform:translateY(-9px);
+border-color:var(--cyan);
+box-shadow:0 35px 90px rgba(0,118,255,.18);
+}
+
+.industry-icon{
+width:82px;
+height:82px;
+border-radius:22px;
+display:flex;
+align-items:center;
+justify-content:center;
+margin-bottom:24px;
+transition:.35s;
+border:1px solid transparent;
+}
+
+.industry-icon i{
+font-size:36px;
+transition:.35s;
+}
+
+.industry-card:hover .industry-icon{
+transform:translateY(-7px) rotate(8deg) scale(1.08);
+}
+
+.industry-card h3{
+color:var(--head);
+font-size:25px;
+margin-bottom:13px;
+letter-spacing:-1px;
+}
+
+.industry-card p{
+color:var(--muted);
+font-size:15px;
+line-height:1.75;
+margin-bottom:22px;
+}
+
+.industry-card ul{
+list-style:none;
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+}
+
+.industry-card li{
+color:var(--cyan);
+background:rgba(0,212,255,.08);
+border:1px solid rgba(0,212,255,.15);
+padding:7px 11px;
+border-radius:5px;
+font-size:12px;
+font-weight:800;
+}
+
+.health{background:rgba(0,230,118,.12);border-color:rgba(0,230,118,.25)}
+.health i{color:#00E676}
+.finance{background:rgba(33,150,243,.12);border-color:rgba(66,165,245,.25)}
+.finance i{color:#42A5F5}
+.education{background:rgba(156,39,176,.12);border-color:rgba(186,104,200,.25)}
+.education i{color:#BA68C8}
+.gov{background:rgba(255,152,0,.12);border-color:rgba(255,183,77,.25)}
+.gov i{color:#FFB74D}
+.manufacturing{background:rgba(244,67,54,.12);border-color:rgba(239,83,80,.25)}
+.manufacturing i{color:#EF5350}
+.retail{background:rgba(236,72,153,.12);border-color:rgba(244,114,182,.25)}
+.retail i{color:#F472B6}
+.realestate{background:rgba(0,188,212,.12);border-color:rgba(38,198,218,.25)}
+.realestate i{color:#26C6DA}
+.logistics{background:rgba(20,184,166,.12);border-color:rgba(45,212,191,.25)}
+.logistics i{color:#2DD4BF}
+.enterprise{background:rgba(99,102,241,.12);border-color:rgba(129,140,248,.25)}
+.enterprise i{color:#818CF8}
+
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+}
+
+.stat-card{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:18px;
+padding:34px;
+text-align:center;
+box-shadow:0 24px 60px var(--shadow);
+transition:.35s;
+}
+
+.stat-card:hover{
+transform:translateY(-7px);
+border-color:var(--cyan);
+}
+
+.stat-card i{
+font-size:34px;
+margin-bottom:16px;
+}
+
+.stat-card:nth-child(1) i{color:#00E676}
+.stat-card:nth-child(2) i{color:#42A5F5}
+.stat-card:nth-child(3) i{color:#BA68C8}
+.stat-card:nth-child(4) i{color:#FFB74D}
+
+.stat-card h3{
+font-size:42px;
+color:var(--head);
+margin-bottom:8px;
+}
+
+.stat-card p{
+color:var(--muted);
+font-size:14px;
+}
+
+.why-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+}
+
+.why-card{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:18px;
+padding:32px;
+box-shadow:0 24px 60px var(--shadow);
+transition:.35s;
+}
+
+.why-card:hover{
+transform:translateY(-7px);
+border-color:var(--cyan);
+}
+
+.why-icon{
+width:76px;
+height:76px;
+border-radius:20px;
+display:flex;
+align-items:center;
+justify-content:center;
+margin-bottom:22px;
+}
+
+.why-icon i{font-size:32px}
+
+.why-card h3{
+color:var(--head);
+font-size:20px;
+margin-bottom:10px;
+}
+
+.why-card p{
+color:var(--muted);
+font-size:14px;
+line-height:1.7;
+}
+
+.why-icon.expertise{background:rgba(33,150,243,.12);border:1px solid rgba(66,165,245,.25)}
+.why-icon.expertise i{color:#42A5F5}
+.why-icon.secure{background:rgba(0,230,118,.12);border:1px solid rgba(0,230,118,.25)}
+.why-icon.secure i{color:#00E676}
+.why-icon.ai{background:rgba(156,39,176,.12);border:1px solid rgba(186,104,200,.25)}
+.why-icon.ai i{color:#BA68C8}
+.why-icon.support{background:rgba(255,152,0,.12);border:1px solid rgba(255,183,77,.25)}
+.why-icon.support i{color:#FFB74D}
+
+.tech-list{display:flex;flex-wrap:wrap;gap:14px}
+
+.tech-chip{
+background:var(--card);
+border:1px solid var(--border);
+color:var(--text);
+padding:14px 22px;
+border-radius:50px;
+font-weight:800;
+font-size:14px;
+transition:.3s;
+box-shadow:0 15px 40px var(--shadow);
+}
+
+.tech-chip:hover{
+color:#fff;
+background:var(--primary);
+border-color:var(--primary);
+transform:translateY(-4px);
+}
+
+.process-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:1px;
+background:var(--border);
+border:1px solid var(--border);
+border-radius:18px;
+overflow:hidden;
+}
+
+.process-card{
+background:var(--card);
+padding:34px;
+min-height:220px;
+transition:.35s;
+}
+
+.process-card:hover{background:rgba(59,126,248,.08)}
+.process-card strong{font-size:34px;color:rgba(59,126,248,.55)}
+.process-card h3{color:var(--head);font-size:20px;margin:16px 0 10px}
+.process-card p{color:var(--muted);font-size:14px;line-height:1.7}
+
+.cta-box{
+margin:0 70px 100px;
+padding:55px;
+border-radius:20px;
+background:linear-gradient(135deg,#071631,#0b3269);
+color:#fff;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:30px;
+border:1px solid rgba(0,212,255,.20);
+box-shadow:0 30px 80px rgba(0,0,0,.25);
+}
+
+.cta-box h2{
+font-size:40px;
+letter-spacing:-2px;
+margin-bottom:12px;
+}
+
+.cta-box p{
+color:#c9ddf6;
+max-width:700px;
+line-height:1.7;
+}
+
+.cta-btn{
+background:#1687ff;
+color:#fff;
+padding:15px 28px;
+border-radius:6px;
+text-decoration:none;
+font-weight:800;
+white-space:nowrap;
+text-transform:uppercase;
+}
+
+.reveal{opacity:0;transform:translateY(28px);transition:.8s ease}
+.reveal.show{opacity:1;transform:translateY(0)}
+
+@media(max-width:1100px){
+.hero{grid-template-columns:1fr}
+.industries-grid{grid-template-columns:repeat(2,1fr)}
+.stats-grid,.why-grid,.process-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:700px){
+.hero,.section{padding-left:24px;padding-right:24px}
+.hero{padding-top:140px}
+.hero h1{letter-spacing:-2px}
+.section-head,.cta-box{flex-direction:column;align-items:flex-start}
+.industries-grid,.stats-grid,.why-grid,.process-grid{grid-template-columns:1fr}
+.cta-box{margin-left:24px;margin-right:24px;padding:34px}
+.panel-grid{grid-template-columns:1fr}
+}
+.cta-box{
+  width:calc(100% - 140px);
+  max-width:1280px;
+  margin:0 auto 100px;
+  padding:55px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px;
+}
+
+.cta-box > div{
+  flex:1;
+  min-width:0;
+}
+
+.cta-box h2{
+  font-size:clamp(28px,4vw,40px);
+  line-height:1.15;
+}
+
+.cta-box p{
+  max-width:650px;
+}
+
+.cta-btn{
+  flex-shrink:0;
+  text-align:center;
+}
+
+/* Tablet */
+@media(max-width:900px){
+  .cta-box{
+    width:calc(100% - 48px);
+    padding:38px;
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .cta-btn{
+    width:auto;
+  }
+}
+
+/* Mobile */
+@media(max-width:520px){
+  .cta-box{
+    width:calc(100% - 32px);
+    padding:28px 22px;
+    margin-bottom:70px;
+    border-radius:16px;
+  }
+
+  .cta-btn{
+    width:100%;
+    justify-content:center;
+    display:flex;
+  }
+}
+.logo-light {
+  display: none;
+}
+
+.logo-dark {
+  display: block;
+}
+
+html.light .logo-dark {
+  display: none;
+}
+
+html.light .logo-light {
+  display: block;
+}
+.logo-img{
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+}
+</style>
+<link rel="stylesheet" href="css/premium.css">
+</head>
+
+<body>
+
+<div class="page-bg">
+  <div class="grid-bg"></div>
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+  <div class="orb three"></div>
+</div>
+
+<header class="site-header" id="siteHeader">
+  <nav class="sb-navbar">
+   <a href="index.html" class="logo-text">
+  <img src="assets/images/logo-dark.png" class="logo-img logo-dark" alt="SBTech Logo">
+  <img src="assets/images/logo-light.png" class="logo-img logo-light" alt="SBTech Logo">
+</a>
+
+    <ul class="sb-nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="solutions.html">Solutions</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="industries.html">Industry</a></li>
+      <li><a href="insights.html">Insights</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="sb-nav-actions">
+      <a href="contact.html" class="sb-nav-cta">Get Started</a>
+
+      <!-- <button class="sb-hamburger" onclick="toggleMenu()" type="button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button> -->
+      <button class="sb-hamburger" id="hamburgerBtn" onclick="toggleMenu()" type="button">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+    </div>
+  </nav>
+</header>
+
+<div class="sb-mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="solutions.html" onclick="closeMenu()">Solutions</a>
+  <a href="services.html" onclick="closeMenu()">Services</a>
+  <a href="industries.html" onclick="closeMenu()">Industries</a>
+  <a href="about.html" onclick="closeMenu()">Company</a>
+  <a href="insights.html" onclick="closeMenu()">Insights</a>
+  <a href="contact.html" onclick="closeMenu()" class="mobile-cta">Get Started →</a>
+</div>
+
+<main>
+
+<section class="hero">
+  <div>
+    <div class="badge">Industries We Serve</div>
+    <h1>Secure Technology Solutions for <span>Modern Industries.</span></h1>
+    <p>
+      SBTech helps healthcare, finance, education, government, retail, logistics,
+      real estate, and enterprises adopt secure, scalable, and intelligent digital systems.
+    </p>
+
+    <div class="hero-actions">
+      <a href="contact.html" class="btn primary">Schedule Consultation <i class="fas fa-arrow-right"></i></a>
+      <a href="#industries" class="btn ghost">Explore Industries</a>
+    </div>
+  </div>
+
+  <div class="hero-panel reveal">
+    <div class="panel-inner">
+      <div class="panel-top">
+        <span>INDUSTRY COVERAGE</span>
+        <span style="color:var(--cyan)">LIVE</span>
+      </div>
+
+      <div class="panel-grid">
+        <div class="panel-card">
+          <i class="fas fa-hospital"></i>
+          <h3>Healthcare</h3>
+          <p>Secure medical systems</p>
+        </div>
+
+        <div class="panel-card">
+          <i class="fas fa-building-columns"></i>
+          <h3>Finance</h3>
+          <p>Protected transactions</p>
+        </div>
+
+        <div class="panel-card">
+          <i class="fas fa-graduation-cap"></i>
+          <h3>Education</h3>
+          <p>Digital learning platforms</p>
+        </div>
+
+        <div class="panel-card">
+          <i class="fas fa-industry"></i>
+          <h3>Enterprise</h3>
+          <p>Scalable operations</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <div class="stats-grid">
+    <div class="stat-card">
+      <i class="fas fa-layer-group"></i>
+      <h3 data-count="9">0</h3>
+      <p>Industries Supported</p>
+    </div>
+
+    <div class="stat-card">
+      <i class="fas fa-shield-halved"></i>
+      <h3>360°</h3>
+      <p>Security Coverage</p>
+    </div>
+
+    <div class="stat-card">
+      <i class="fas fa-robot"></i>
+      <h3>AI</h3>
+      <p>Automation Ready</p>
+    </div>
+
+    <div class="stat-card">
+      <i class="fas fa-headset"></i>
+      <h3>24/7</h3>
+      <p>Managed Support</p>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="industries">
+  <div class="section-head reveal">
+    <h2>Industries</h2>
+    <p>
+      We deliver cybersecurity, AI automation, cloud, ERP, software, and managed IT
+      solutions tailored to each industry’s workflow and security needs.
+    </p>
+  </div>
+
+  <div class="industries-grid">
+
+    <div class="industry-card reveal">
+      <div class="industry-icon health"><i class="fas fa-hospital"></i></div>
+      <h3>Healthcare</h3>
+      <p>Secure digital healthcare systems for hospitals, clinics, and medical service providers.</p>
+      <ul><li>Patient Portal</li><li>HIPAA Security</li><li>Telemedicine</li></ul>
+    </div>
+
+    <div class="industry-card reveal">
+      <div class="industry-icon finance"><i class="fas fa-building-columns"></i></div>
+      <h3>Banking & Finance</h3>
+      <p>Secure financial platforms with compliance, automation, data protection, and fraud prevention.</p>
+      <ul><li>FinTech</li><li>Fraud Detection</li><li>Compliance</li></ul>
+    </div>
+
+    <div class="industry-card reveal">
+      <div class="industry-icon education"><i class="fas fa-graduation-cap"></i></div>
+      <h3>Education</h3>
+      <p>Digital learning systems, school ERP, LMS platforms, student portals, and online exams.</p>
+      <ul><li>School ERP</li><li>LMS</li><li>Online Exams</li></ul>
+    </div>
+
+    <div class="industry-card reveal">
+      <div class="industry-icon gov"><i class="fas fa-landmark"></i></div>
+      <h3>Government</h3>
+      <p>Secure public-sector platforms for digital services, e-governance, and citizen systems.</p>
+      <ul><li>e-Governance</li><li>Cybersecurity</li><li>Smart City</li></ul>
+    </div>
+
+    <div class="industry-card reveal">
+      <div class="industry-icon manufacturing"><i class="fas fa-industry"></i></div>
+      <h3>Manufacturing</h3>
+      <p>ERP, production tracking, inventory systems, automation, IoT readiness, and analytics.</p>
+      <ul><li>ERP</li><li>Inventory</li><li>Analytics</li></ul>
+    </div>
+
+    <div class="industry-card reveal">
+      <div class="industry-icon retail"><i class="fas fa-cart-shopping"></i></div>
+      <h3>Retail & E-Commerce</h3>
+      <p>Commerce platforms, POS systems, inventory, customer analytics, and mobile commerce.</p>
+      <ul><li>POS</li><li>Inventory</li><li>Mobile Commerce</li></ul>
+    </div>
+
+    <div class="industry-card reveal">
+      <div class="industry-icon realestate"><i class="fas fa-city"></i></div>
+      <h3>Real Estate</h3>
+      <p>CRM, property portals, document workflows, lead management, and mobile applications.</p>
+      <ul><li>CRM</li><li>Property Portal</li><li>Documents</li></ul>
+    </div>
+
+    <div class="industry-card reveal">
+      <div class="industry-icon logistics"><i class="fas fa-truck-fast"></i></div>
+      <h3>Logistics</h3>
+      <p>Fleet tracking, warehouse systems, GPS solutions, route planning, and delivery optimization.</p>
+      <ul><li>Fleet Tracking</li><li>Warehouse</li><li>Route Optimization</li></ul>
+    </div>
+
+    <div class="industry-card reveal">
+      <div class="industry-icon enterprise"><i class="fas fa-rocket"></i></div>
+      <h3>Startups & Enterprise</h3>
+      <p>MVP development, SaaS platforms, cloud setup, AI automation, and scaling support.</p>
+      <ul><li>MVP</li><li>SaaS</li><li>Cloud</li></ul>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head reveal">
+    <h2>Why Industries Choose SBTech</h2>
+    <p>We combine technology delivery with security-first thinking, AI capability, and long-term support.</p>
+  </div>
+
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <div class="why-icon expertise"><i class="fas fa-briefcase"></i></div>
+      <h3>Industry Expertise</h3>
+      <p>We understand workflows across healthcare, finance, education, government, retail, and enterprise sectors.</p>
+    </div>
+
+    <div class="why-card reveal">
+      <div class="why-icon secure"><i class="fas fa-shield-halved"></i></div>
+      <h3>Security First</h3>
+      <p>Every solution is built with data protection, access control, and reliability in mind.</p>
+    </div>
+
+    <div class="why-card reveal">
+      <div class="why-icon ai"><i class="fas fa-robot"></i></div>
+      <h3>AI Driven</h3>
+      <p>We help industries automate manual operations using intelligent systems and data workflows.</p>
+    </div>
+
+    <div class="why-card reveal">
+      <div class="why-icon support"><i class="fas fa-headset"></i></div>
+      <h3>24/7 Support</h3>
+      <p>Continuous support for systems, infrastructure, security, and operational improvements.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="section-head reveal">
+    <h2>Technology Expertise</h2>
+    <p>Our solutions are powered by modern technologies used to build secure, scalable, and future-ready platforms.</p>
+  </div>
+
+  <div class="tech-list reveal">
+    <div class="tech-chip">Artificial Intelligence</div>
+    <div class="tech-chip">Cybersecurity</div>
+    <div class="tech-chip">Cloud Infrastructure</div>
+    <div class="tech-chip">DevOps</div>
+    <div class="tech-chip">Web Development</div>
+    <div class="tech-chip">Mobile Apps</div>
+    <div class="tech-chip">ERP Systems</div>
+    <div class="tech-chip">Automation</div>
+    <div class="tech-chip">Data Analytics</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head reveal">
+    <h2>How We Deliver Industry Solutions</h2>
+    <p>A focused process that aligns technology with your sector’s operations, compliance, and growth needs.</p>
+  </div>
+
+  <div class="process-grid reveal">
+    <div class="process-card">
+      <strong>01</strong>
+      <h3>Understand</h3>
+      <p>We study your industry workflow, users, risks, and business goals.</p>
+    </div>
+
+    <div class="process-card">
+      <strong>02</strong>
+      <h3>Design</h3>
+      <p>We design a secure architecture and practical solution roadmap.</p>
+    </div>
+
+    <div class="process-card">
+      <strong>03</strong>
+      <h3>Build</h3>
+      <p>We develop, integrate, test, and secure the platform.</p>
+    </div>
+
+    <div class="process-card">
+      <strong>04</strong>
+      <h3>Support</h3>
+      <p>We provide continuous support, monitoring, and optimization.</p>
+    </div>
+  </div>
+</section>
+
+<div class="cta-box reveal">
+  <div>
+    <h2>Ready to transform your industry?</h2>
+    <p>Talk to SBTech experts and discover the right digital solution for your sector.</p>
+  </div>
+  <a href="contact.html" class="cta-btn">Schedule Consultation</a>
+</div>
+
+</main>
+
+<footer class="sb-footer">
+  <div class="sb-footer-grid">
+
+    <div class="sb-footer-brand">
+     <a href="index.html" class="logo-text">
+  <img src="assets/images/logo-dark.png" class="logo-img logo-dark" alt="SBTech Logo">
+  <img src="assets/images/logo-light.png" class="logo-img logo-light" alt="SBTech Logo">
+</a>
+
+      <p>
+        SBTech delivers enterprise cybersecurity, AI automation,
+        cloud security, managed IT, and digital transformation solutions.
+      </p>
+
+          </div>
+
+    <div class="sb-footer-col">
+      <h4>Solutions</h4>
+      <a href="solutions.html">Cybersecurity</a>
+      <a href="solutions.html">AI Automation</a>
+      <a href="solutions.html">Cloud Security</a>
+      <a href="solutions.html">Managed Security</a>
+    </div>
+
+    <div class="sb-footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About Us</a>
+      <a href="services.html">Services</a>
+      <a href="industries.html">Industries</a>
+      <a href="insights.html">Insights</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+   <div class="sb-footer-col">
+        <h4>Contact</h4>
+
+        <p>
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:info@sbtech.ca">info@sbtech.ca</a>
+        </p>
+
+        <p>
+          <i class="fas fa-phone"></i>
+          <a href="tel:+14168023794">(416) 802-3794</a>
+        </p>
+
+        <p>
+          <i class="fas fa-location-dot"></i>
+         100 Mural St, Suite 100
+Richmond Hill, ON L4B 1J3
+        </p>
+
+        <a href="contact.html" class="footer-contact-btn">
+          Talk to an Expert
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="sb-footer-bottom">
+    <p>© <span id="copyrightYear"></span> SBTech. All rights reserved.</p>
+
+    <div>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
+      <a href="cookies.html">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/navbar.js"></script>
+<script src="js/footer.js"></script>
+
+<script>
+const reveals=document.querySelectorAll(".reveal");
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add("show");
+  });
+},{threshold:.15});
+reveals.forEach(el=>observer.observe(el));
+
+let counted=false;
+function runCounters(){
+  if(counted)return;
+  const stats=document.querySelector(".stats-grid");
+  if(!stats)return;
+  if(stats.getBoundingClientRect().top<window.innerHeight-80){
+    counted=true;
+    document.querySelectorAll("[data-count]").forEach(el=>{
+      const target=+el.dataset.count;
+      let current=0;
+      const step=Math.max(1,Math.ceil(target/35));
+      const timer=setInterval(()=>{
+        current+=step;
+        if(current>=target){current=target;clearInterval(timer)}
+        el.textContent=current+"+";
+      },35);
+    });
+  }
+}
+window.addEventListener("scroll",runCounters);
+runCounters();
+</script>
+
+</body>
+</html>

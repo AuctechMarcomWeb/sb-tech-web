@@ -1,0 +1,275 @@
+.site-header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+}
+
+.sb-navbar{
+  height:76px;
+  padding:0 6vw;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:rgba(6,13,26,.86);
+  backdrop-filter:blur(24px);
+  border-bottom:1px solid rgba(59,126,248,.14);
+  transition:.3s ease;
+}
+
+.site-header.scrolled .sb-navbar{
+  height:66px;
+  background:rgba(6,13,26,.96);
+  box-shadow:0 18px 50px rgba(0,0,0,.28);
+}
+
+.sb-logo img{
+  height:62px;
+  width:auto;
+  display:block;
+}
+
+.sb-nav-links{
+  display:flex;
+  align-items:center;
+  gap:4px;
+  list-style:none;
+}
+
+.sb-nav-links a{
+  color:#7f9abb;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  padding:9px 14px;
+  border-radius:4px;
+  transition:.25s;
+}
+
+.sb-nav-links a:hover,
+.sb-nav-links a.active{
+  color:#ffffff;
+  background:rgba(59,126,248,.1);
+}
+
+.sb-nav-actions{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.theme-toggle{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  border:1px solid rgba(59,126,248,.25);
+  background:rgba(59,126,248,.08);
+  color:#c8deff;
+  border-radius:30px;
+  padding:8px 13px;
+  cursor:pointer;
+  font-size:12px;
+}
+
+.sb-nav-cta{
+  background:#3b7ef8;
+  color:#fff;
+  text-decoration:none;
+  padding:11px 20px;
+  border-radius:4px;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+  box-shadow:0 0 24px rgba(59,126,248,.38);
+}
+
+.sb-nav-cta:hover{
+  background:#5a95ff;
+}
+
+.sb-hamburger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+
+.sb-hamburger span{
+  width:24px;
+  height:2px;
+  background:#c8deff;
+  border-radius:5px;
+}
+
+.sb-mobile-menu{
+  display:none;
+  position:fixed;
+  top:76px;
+  left:0;
+  right:0;
+  z-index:999;
+  background:rgba(6,13,26,.98);
+  backdrop-filter:blur(24px);
+  border-bottom:1px solid rgba(59,126,248,.14);
+  padding:22px 6vw;
+}
+
+.sb-mobile-menu.open{
+  display:flex;
+  flex-direction:column;
+}
+
+.sb-mobile-menu a{
+  color:#7f9abb;
+  text-decoration:none;
+  padding:14px 0;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.sb-mobile-menu a:hover{
+  color:#fff;
+}
+
+.mobile-cta{
+  color:#3b7ef8!important;
+}
+
+/* Light mode */
+html.light .sb-navbar{
+  background:rgba(240,244,250,.92);
+}
+
+html.light .site-header.scrolled .sb-navbar{
+  background:rgba(255,255,255,.96);
+}
+
+html.light .sb-nav-links a,
+html.light .theme-toggle{
+  color:#0c1a2e;
+}
+
+html.light .sb-mobile-menu{
+  background:#f0f4fa;
+}
+
+html.light .sb-mobile-menu a{
+  color:#0c1a2e;
+}
+
+html.light .sb-hamburger span{
+  background:#0c1a2e;
+}
+
+@media(max-width:1100px){
+  .sb-nav-links,
+  .sb-nav-cta{
+    display:none;
+  }
+
+  .sb-hamburger{
+    display:flex;
+  }
+
+  .sb-logo img{
+    height:56px;
+  }
+}
+.sb-socials a:nth-child(1):hover{
+    background:#0A66C2; /* LinkedIn */
+}
+
+.sb-socials a:nth-child(2):hover{
+    background:#1877F2; /* Facebook */
+}
+
+.sb-socials a:nth-child(3):hover{
+    background:#000000; /* X */
+}
+
+.sb-socials a:nth-child(4):hover{
+    background:#E4405F; /* Instagram */
+}
+/* LinkedIn */
+.sb-socials a:nth-child(1){
+    background:#EAF4FF;
+    color:#0A66C2;
+}
+
+/* Facebook */
+.sb-socials a:nth-child(2){
+    background:#EEF5FF;
+    color:#1877F2;
+}
+
+/* X */
+.sb-socials a:nth-child(3){
+    background:#F3F3F3;
+    color:#111111;
+}
+
+/* Instagram */
+.sb-socials a:nth-child(4){
+    background:#FFF0F5;
+    color:#E4405F;
+}
+.sb-hamburger.active span:nth-child(1){
+  transform:rotate(45deg) translate(5px,5px);
+}
+
+.sb-hamburger.active span:nth-child(2){
+  opacity:0;
+}
+
+.sb-hamburger.active span:nth-child(3){
+  transform:rotate(-45deg) translate(5px,-5px);
+}
+
+.sb-hamburger span{
+  transition:.3s;
+}
+.logo-light {
+  display: none;
+}
+
+.logo-dark {
+  display: block;
+}
+
+html.light .logo-dark {
+  display: none;
+}
+
+html.light .logo-light {
+  display: block;
+}
+
+.logo-light {
+  display: none;
+}
+
+.logo-dark {
+  display: block;
+}
+
+html.light .logo-dark {
+  display: none;
+}
+
+html.light .logo-light {
+  display: block;
+}
+.logo-img{
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+}

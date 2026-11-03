@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <title>Contact | SBTech</title>
+<meta name="description" content="Contact SBTech — enterprise cybersecurity, managed IT, AI governance, and ERP delivery. Every inquiry receives a response within 24 hours. Richmond Hill, Ontario.">
+
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    :root {
+      --fd: 'Plus Jakarta Sans', sans-serif;
+      --fb: 'Inter', sans-serif;
+      --bg: #060d1a;
+      --soft: #0a1628;
+      --card: rgba(10, 22, 40, .88);
+      --head: #fff;
+      --text: #c8deff;
+      --muted: #6b8cae;
+      --border: rgba(59, 126, 248, .18);
+      --primary: #3b7ef8;
+      --cyan: #00d4ff;
+      --shadow: rgba(0, 0, 0, .35);
+      --input: #060d1a;
+    }
+
+    html.light {
+      --bg: #f0f4fa;
+      --soft: #fff;
+      --card: rgba(255, 255, 255, .94);
+      --head: #071631;
+      --text: #17406f;
+      --muted: #476988;
+      --border: rgba(59, 126, 248, .18);
+      --primary: #1479ff;
+      --cyan: #18c6ff;
+      --shadow: rgba(9, 45, 92, .08);
+      --input: #fff;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      font-family: var(--fb);
+      line-height: 1.6
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: var(--fd)
+    }
+
+    .page-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: var(--bg);
+      overflow: hidden
+    }
+
+    .grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(0, 212, 255, .055) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 212, 255, .055) 1px, transparent 1px);
+      background-size: 70px 70px;
+      animation: gridMove 22s linear infinite
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(45px);
+      opacity: .5;
+      animation: floatOrb 9s ease-in-out infinite
+    }
+
+    .orb.one {
+      width: 420px;
+      height: 420px;
+      background: rgba(59, 126, 248, .34);
+      right: -120px;
+      top: 120px
+    }
+
+    .orb.two {
+      width: 360px;
+      height: 360px;
+      background: rgba(0, 212, 255, .20);
+      left: -120px;
+      top: 580px;
+      animation-delay: 2s
+    }
+
+    .orb.three {
+      width: 300px;
+      height: 300px;
+      background: rgba(160, 80, 255, .18);
+      right: 20%;
+      bottom: 10%;
+      animation-delay: 4s
+    }
+
+    @keyframes gridMove {
+      to {
+        transform: translate(70px, 70px)
+      }
+    }
+
+    @keyframes floatOrb {
+      50% {
+        transform: translateY(-35px) scale(1.08)
+      }
+    }
+
+    .hero {
+      padding: 165px 70px 95px;
+      min-height: 650px;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 50px;
+      align-items: center
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border: 1px solid rgba(0, 212, 255, .25);
+      background: rgba(0, 212, 255, .08);
+      color: var(--cyan);
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 800;
+      margin-bottom: 30px
+    }
+
+    .badge:before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      background: var(--cyan);
+      border-radius: 50%;
+      box-shadow: 0 0 14px var(--cyan)
+    }
+
+    .hero h1 {
+      font-size: clamp(46px, 7vw, 86px);
+      line-height: 1.02;
+      letter-spacing: -4px;
+      color: var(--head);
+      max-width: 940px;
+      margin-bottom: 24px
+    }
+
+    .hero h1 span {
+      background: linear-gradient(90deg, var(--primary), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent
+    }
+
+    .hero p {
+      max-width: 760px;
+      font-size: 19px;
+      line-height: 1.75;
+      color: var(--muted);
+      margin-bottom: 34px
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      text-decoration: none;
+      border-radius: 6px;
+      padding: 15px 25px;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: .8px
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--primary), var(--cyan));
+      color: #fff;
+      box-shadow: 0 20px 45px rgba(59, 126, 248, .28)
+    }
+
+    .btn.ghost {
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: rgba(255, 255, 255, .03)
+    }
+
+    .hero-panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 30px 80px var(--shadow);
+      position: relative;
+      overflow: hidden
+    }
+
+    .hero-panel:before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      background: linear-gradient(120deg, transparent, var(--cyan), transparent);
+      opacity: .15;
+      animation: shine 4s linear infinite
+    }
+
+    @keyframes shine {
+      to {
+        transform: translateX(100%)
+      }
+    }
+
+    .panel-inner {
+      position: relative;
+      z-index: 1
+    }
+
+    .panel-top {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 25px;
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px
+    }
+
+    .panel-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px
+    }
+
+    .panel-card {
+      background: rgba(59, 126, 248, .08);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center
+    }
+
+    .panel-card i {
+      font-size: 34px;
+      margin-bottom: 14px
+    }
+
+    .panel-card h3 {
+      color: var(--head);
+      font-size: 22px;
+      margin-bottom: 6px
+    }
+
+    .panel-card p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5
+    }
+
+    .panel-card:nth-child(1) i {
+      color: #00E676
+    }
+
+    .panel-card:nth-child(2) i {
+      color: #42A5F5
+    }
+
+    .panel-card:nth-child(3) i {
+      color: #FFB74D
+    }
+
+    .panel-card:nth-child(4) i {
+      color: #BA68C8
+    }
+
+    .section {
+      padding: 95px 70px;
+      background: var(--bg)
+    }
+
+    .section.alt {
+      background: var(--soft);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border)
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+      margin-bottom: 45px
+    }
+
+    .section-head h2 {
+      font-size: 44px;
+      letter-spacing: -2px;
+      color: var(--head)
+    }
+
+    .section-head p {
+      max-width: 560px;
+      color: var(--muted);
+      line-height: 1.7
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: .8s ease
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0)
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .contact-form,
+    .contact-info,
+    .map-box,
+    .faq-card,
+    .quick-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 24px 60px var(--shadow);
+    }
+
+    .contact-form {
+      padding: 38px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-form:before {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      right: -140px;
+      top: -140px;
+      background: radial-gradient(circle, rgba(0, 212, 255, .16), transparent 70%);
+    }
+
+    .contact-form>* {
+      position: relative;
+      z-index: 1
+    }
+
+    .contact-form h2,
+    .contact-info h2 {
+      color: var(--head);
+      font-size: 34px;
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+    }
+
+    .contact-form p,
+    .contact-info p {
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 28px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .form-field.full {
+      grid-column: 1/-1
+    }
+
+    .form-field label {
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .3px;
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      width: 100%;
+      background: var(--input);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 15px 16px;
+      outline: none;
+      font-size: 14px;
+      transition: .25s;
+    }
+
+    .form-field textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 0 4px rgba(0, 212, 255, .08);
+    }
+
+    .submit-btn {
+      width: 100%;
+      border: none;
+      background: linear-gradient(135deg, var(--primary), var(--cyan));
+      color: #fff;
+      padding: 16px 24px;
+      border-radius: 10px;
+      font-weight: 900;
+      cursor: pointer;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: .9px;
+      transition: .3s;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 45px rgba(59, 126, 248, .35);
+    }
+
+    .contact-info {
+      padding: 36px;
+      position: sticky;
+      top: 95px;
+    }
+
+    .info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 16px;
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(59, 126, 248, .05);
+      transition: .3s;
+    }
+
+    .info-item:hover {
+      transform: translateY(-4px);
+      border-color: var(--cyan);
+    }
+
+    .info-item i {
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 22px;
+    }
+
+    .info-item h3 {
+      color: var(--head);
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .info-item p,
+    .info-item a {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+      text-decoration: none;
+      margin-bottom: 0;
+    }
+
+    .info-item a:hover {
+      color: var(--cyan)
+    }
+
+    .info-item.email i {
+      background: rgba(0, 230, 118, .12);
+      border: 1px solid rgba(0, 230, 118, .25);
+      color: #00E676
+    }
+
+    .info-item.location i {
+      background: rgba(33, 150, 243, .12);
+      border: 1px solid rgba(66, 165, 245, .25);
+      color: #42A5F5
+    }
+
+    .info-item.time i {
+      background: rgba(255, 152, 0, .12);
+      border: 1px solid rgba(255, 183, 77, .25);
+      color: #FFB74D
+    }
+
+    .info-item.support i {
+      background: rgba(156, 39, 176, .12);
+      border: 1px solid rgba(186, 104, 200, .25);
+      color: #BA68C8
+    }
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .quick-card {
+      padding: 30px;
+      transition: .35s;
+    }
+
+    .quick-card:hover {
+      transform: translateY(-7px);
+      border-color: var(--cyan);
+    }
+
+    .quick-card i {
+      width: 76px;
+      height: 76px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .quick-card:nth-child(1) i {
+      background: rgba(0, 230, 118, .12);
+      border: 1px solid rgba(0, 230, 118, .25);
+      color: #00E676
+    }
+
+    .quick-card:nth-child(2) i {
+      background: rgba(33, 150, 243, .12);
+      border: 1px solid rgba(66, 165, 245, .25);
+      color: #42A5F5
+    }
+
+    .quick-card:nth-child(3) i {
+      background: rgba(255, 152, 0, .12);
+      border: 1px solid rgba(255, 183, 77, .25);
+      color: #FFB74D
+    }
+
+    .quick-card h3 {
+      color: var(--head);
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .quick-card p {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .map-box {
+      min-height: 350px;
+      padding: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background:
+        linear-gradient(rgba(59, 126, 248, .08), rgba(59, 126, 248, .08)),
+        var(--card);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .map-box:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(0, 212, 255, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 212, 255, .05) 1px, transparent 1px);
+      background-size: 45px 45px;
+    }
+
+    .map-box>div {
+      position: relative;
+      z-index: 1
+    }
+
+    .map-box i {
+      width: 88px;
+      height: 88px;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 38px;
+      background: rgba(33, 150, 243, .12);
+      border: 1px solid rgba(66, 165, 245, .25);
+      color: #42A5F5;
+    }
+
+    .map-box h2 {
+      color: var(--head);
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .map-box p {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .faq-card {
+      padding: 30px;
+      transition: .35s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .faq-card:hover {
+      transform: translateY(-7px);
+      border-color: var(--cyan);
+    }
+
+    .faq-card i {
+      width: 66px;
+      height: 66px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: 18px;
+    }
+
+    .faq-card:nth-child(1) i {
+      background: rgba(33, 150, 243, .12);
+      border: 1px solid rgba(66, 165, 245, .25);
+      color: #42A5F5
+    }
+
+    .faq-card:nth-child(2) i {
+      background: rgba(0, 230, 118, .12);
+      border: 1px solid rgba(0, 230, 118, .25);
+      color: #00E676
+    }
+
+    .faq-card:nth-child(3) i {
+      background: rgba(244, 67, 54, .12);
+      border: 1px solid rgba(239, 83, 80, .25);
+      color: #EF5350
+    }
+
+    .faq-card:nth-child(4) i {
+      background: rgba(255, 152, 0, .12);
+      border: 1px solid rgba(255, 183, 77, .25);
+      color: #FFB74D
+    }
+
+    .faq-card h3 {
+      color: var(--head);
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .faq-card p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .cta-box {
+      margin: 0 70px 100px;
+      padding: 55px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #071631, #0b3269);
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+      border: 1px solid rgba(0, 212, 255, .20);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, .25);
+    }
+
+    .cta-box h2 {
+      font-size: 40px;
+      letter-spacing: -2px;
+      margin-bottom: 12px;
+    }
+
+    .cta-box p {
+      color: #c9ddf6;
+      max-width: 700px;
+      line-height: 1.7;
+    }
+
+    .cta-btn {
+      background: #1687ff;
+      color: #fff;
+      padding: 15px 28px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 800;
+      white-space: nowrap;
+      text-transform: uppercase;
+    }
+
+    @media(max-width:1100px) {
+
+      .hero,
+      .contact-layout {
+        grid-template-columns: 1fr
+      }
+
+      .contact-info {
+        position: relative;
+        top: 0
+      }
+
+      .quick-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    @media(max-width:700px) {
+
+      .hero,
+      .section {
+        padding-left: 24px;
+        padding-right: 24px
+      }
+
+      .hero {
+        padding-top: 140px
+      }
+
+      .hero h1 {
+        letter-spacing: -2px
+      }
+
+      .section-head,
+      .cta-box {
+        flex-direction: column;
+        align-items: flex-start
+      }
+
+      .form-grid,
+      .faq-grid,
+      .panel-grid {
+        grid-template-columns: 1fr
+      }
+
+      .contact-form,
+      .contact-info {
+        padding: 28px
+      }
+
+      .cta-box {
+        margin-left: 24px;
+        margin-right: 24px;
+        padding: 34px
+      }
+    }
+    .business-hours p {
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.business-hours strong {
+    display: block;
+    color: #fff; /* Change according to your theme */
+    font-weight: 600;
+}
+.contact-map {
+    padding: 80px 0;
+    background: var(--bg-color);
+}
+
+.contact-map .section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contact-map .section-title h2 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.contact-map .section-title p {
+    color: #777;
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.7;
+}
+
+.map-wrapper {
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+.map-wrapper iframe {
+    display: block;
+    width: 100%;
+    height: 450px;
+    border: none;
+}
+.logo-light {
+  display: none;
+}
+
+.logo-dark {
+  display: block;
+}
+
+html.light .logo-dark {
+  display: none;
+}
+
+html.light .logo-light {
+  display: block;
+}
+.logo-img{
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+}
+  </style>
+<link rel="stylesheet" href="css/premium.css">
+</head>
+
+<body>
+
+  <div class="page-bg">
+    <div class="grid-bg"></div>
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+    <div class="orb three"></div>
+  </div>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="sb-navbar">
+   <a href="index.html" class="logo-text">
+  <img src="assets/images/logo-dark.png" class="logo-img logo-dark" alt="SBTech Logo">
+  <img src="assets/images/logo-light.png" class="logo-img logo-light" alt="SBTech Logo">
+</a>
+
+      <ul class="sb-nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="solutions.html">Solutions</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="industries.html">Industry</a></li>
+        <li><a href="insights.html">Insights</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="sb-nav-actions">
+        <a href="contact.html" class="sb-nav-cta">Get Started</a>
+
+        <!-- <button class="sb-hamburger" onclick="toggleMenu()" type="button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button> -->
+        <button class="sb-hamburger" id="hamburgerBtn" onclick="toggleMenu()" type="button">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="sb-mobile-menu" id="mobileMenu">
+    <a href="index.html" onclick="closeMenu()">Home</a>
+    <a href="solutions.html" onclick="closeMenu()">Solutions</a>
+    <a href="services.html" onclick="closeMenu()">Services</a>
+    <a href="industries.html" onclick="closeMenu()">Industries</a>
+    <a href="about.html" onclick="closeMenu()">Company</a>
+    <a href="insights.html" onclick="closeMenu()">Insights</a>
+  <a href="contact.html" onclick="closeMenu()" class="mobile-cta">Get Started →</a>
+  </div>
+
+  <main>
+
+    <section class="hero">
+      <div>
+        <div class="badge">Contact SBTech</div>
+        <h1>Let’s Build Something <span>Secure</span> Together.</h1>
+        <p>
+          Have a project, security requirement, automation idea, cloud need, ERP plan,
+          or custom software requirement? Connect with SBTech experts and we’ll help you move forward.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#contactForm" class="btn primary">Start a Project <i class="fas fa-arrow-right"></i></a>
+          <a href="mailto:info@sbtech.ca" class="btn ghost">Email Us</a>
+        </div>
+      </div>
+
+      <div class="hero-panel reveal">
+        <div class="panel-inner">
+          <div class="panel-top">
+            <span>SBTECH CONTACT DESK</span>
+            <span style="color:var(--cyan)">ONLINE</span>
+          </div>
+
+          <div class="panel-grid">
+            <div class="panel-card">
+              <i class="fas fa-shield-halved"></i>
+              <h3>Security</h3>
+              <p>Audit & protection queries</p>
+            </div>
+
+            <div class="panel-card">
+              <i class="fas fa-laptop-code"></i>
+              <h3>Software</h3>
+              <p>Web, mobile & ERP projects</p>
+            </div>
+
+            <div class="panel-card">
+              <i class="fas fa-cloud"></i>
+              <h3>Cloud</h3>
+              <p>Infrastructure & migration</p>
+            </div>
+
+            <div class="panel-card">
+              <i class="fas fa-headset"></i>
+              <h3>Support</h3>
+              <p>Managed IT assistance</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contactForm">
+      <div class="contact-layout">
+
+        <form class="contact-form reveal" onsubmit="submitContactForm(event)">
+          <h2>Send a Message</h2>
+          <p>Tell us what you want to build, secure, automate, or improve. Our team reviews every request and
+            responds within 24 hours.</p>
+
+          <div class="form-grid">
+            <div class="form-field">
+              <label>First Name *</label>
+              <input type="text" id="firstName" placeholder="Enter first name" required>
+            </div>
+
+            <div class="form-field">
+              <label>Last Name </label>
+              <input type="text" id="lastName" placeholder="Enter last name" >
+            </div>
+
+            <div class="form-field">
+              <label> Email *</label>
+              <input type="email" id="email" placeholder="you@company.com" required>
+            </div>
+
+            <div class="form-field">
+              <label>Phone</label>
+              <input type="tel" id="phone" placeholder="+1 000 000 0000">
+            </div>
+
+            
+
+            <div class="form-field full">
+              <label>Message *</label>
+              <textarea id="message" placeholder="Tell us about your project or requirement..." required></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn">Submit Request</button>
+        </form>
+
+        <div class="contact-info reveal">
+          <h2>Connect With SBTech</h2>
+          <p>Speak with our team for cybersecurity, AI automation, cloud, software, ERP, and managed IT requirements.
+          </p>
+
+          <div class="info-list">
+
+            <div class="info-item email">
+              <i class="fas fa-envelope-open-text"></i>
+              <div>
+                <h3>Email Us</h3>
+                <a href="mailto:info@sbtech.ca">info@sbtech.ca</a>
+                <p>For business inquiries and project discussions.</p>
+              </div>
+            </div>
+
+            <div class="info-item location">
+              <i class="fas fa-map-location-dot"></i>
+              <div>
+                <h3>Office Location</h3>
+                <p>100 Mural St, Suite 100,
+                  Richmond Hill, ON L4B 1J3, Canada</p>
+              </div>
+            </div>
+
+            <div class="info-item time">
+              <i class="fas fa-calendar-check"></i>
+            <div>
+    <h3>Business Hours</h3>
+
+    <p>
+        <strong>Monday - Friday:</strong><br>
+        9:00 AM - 6:00 PM
+    </p>
+
+    <p>
+        <strong>Saturday:</strong><br>
+        10:00 AM - 2:00 PM
+    </p>
+
+    <p>
+        <strong>Sunday:</strong><br>
+        Closed
+    </p>
+</div>
+            </div>
+
+            <div class="info-item support">
+              <i class="fas fa-headset"></i>
+              <div>
+                <h3>Managed Support</h3>
+                <p>24/7 monitoring and technical support available for managed clients.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <section class="contact-map">
+    <div class="container">
+        <div class="section-title">
+            <h2>Visit Our Office</h2>
+            <p>We're located in Richmond Hill, Ontario. Stop by or schedule a meeting with our team.</p>
+        </div>
+
+        <div class="map-wrapper">
+            <iframe
+                src="https://www.google.com/maps?q=100+Mural+St,+Suite+100,+Richmond+Hill,+ON+L4B+1J3,+Canada&output=embed"
+                width="100%"
+                height="450"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+</section>
+    <section class="section alt">
+      <div class="section-head reveal">
+        <h2>How We Can Help</h2>
+        <p>Choose the right conversation based on your current business need.</p>
+      </div>
+
+      <div class="quick-grid">
+        <div class="quick-card reveal">
+          <i class="fas fa-shield-halved"></i>
+          <h3>Security Consultation</h3>
+          <p>Discuss VAPT, security audits, compliance gaps, cloud risk, and remediation planning.</p>
+        </div>
+
+        <div class="quick-card reveal">
+          <i class="fas fa-laptop-code"></i>
+          <h3>Project Discussion</h3>
+          <p>Plan custom software, ERP, CRM, mobile apps, dashboards, and automation systems.</p>
+        </div>
+
+        <div class="quick-card reveal">
+          <i class="fas fa-headset"></i>
+          <h3>Managed Support</h3>
+          <p>Get help with infrastructure, servers, monitoring, technical support, and system maintenance.</p>
+        </div>
+      </div>
+    </section>
+    
+
+    <section class="section">
+      <div class="map-box reveal">
+        <div> 
+          <i class="fas fa-map-location-dot"></i>
+          <h2>SBTech Office</h2>
+          <p>100 Mural St, Suite 100
+Richmond Hill, ON L4B 1J3
+            <br> 
+            Serving businesses with secure technology solutions across global markets.
+          </p> 
+        </div> 
+      </div> 
+    </section> 
+
+    <section class="section alt">
+      <div class="section-head reveal">
+        <h2>Frequently Asked Questions</h2>
+        <p>Quick answers before you connect with our team.</p>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-card reveal">
+          <i class="fas fa-reply"></i>
+          <h3>How soon will SBTech respond?</h3>
+          <p>Every inquiry receives a response within 24 hours. Managed clients have access to 24/7 support.</p>
+        </div>
+
+        <div class="faq-card reveal">
+          <i class="fas fa-shield-halved"></i>
+          <h3>Do you provide cybersecurity audits?</h3>
+          <p>Yes. We provide VAPT, cloud security reviews, risk assessments, and remediation guidance.</p>
+        </div>
+
+        <div class="faq-card reveal">
+          <i class="fas fa-laptop-code"></i>
+          <h3>Can you build custom software?</h3>
+          <p>Yes. We build web apps, mobile apps, ERP systems, admin dashboards, SaaS platforms, and automation tools.
+          </p>
+        </div> 
+
+        <div class="faq-card reveal">
+          <i class="fas fa-server"></i>
+          <h3>Do you provide ongoing maintenance?</h3>
+          <p>Yes. SBTech provides managed IT, monitoring, support, updates, optimization, and continuous improvements.
+          </p>
+        </div>
+
+        <div class="faq-card reveal">
+          <i class="fas fa-database"></i>
+          <h3>Is my data stored in Canada?</h3>
+          <p>Yes. Data sovereignty is foundational at SBTech. Clients own their data, control where it lives, and can demonstrate that control to any regulator.</p>
+        </div>
+
+        <div class="faq-card reveal">
+          <i class="fas fa-building"></i>
+          <h3>Do you work with SMBs?</h3>
+          <p>Yes. Our Essentials Managed program is built for growing organizations establishing their security and technology foundation — the same senior-led delivery, scoped to your size.</p>
+        </div>
+
+        <div class="faq-card reveal">
+          <i class="fas fa-route"></i>
+          <h3>What does onboarding look like?</h3>
+          <p>Every engagement starts with a complimentary 30-minute discovery call — no intake forms, no pitch decks. From there we scope, implement, and move directly into managed operations.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="cta-box reveal">
+      <div>
+        <h2>Ready to start with SBTech?</h2>
+        <p>Share your requirement and our experts will help you choose the right technology path.</p>
+      </div>
+      <a href="#contactForm" class="cta-btn">Start Now</a>
+    </div>
+
+  </main>
+
+  <footer class="sb-footer">
+    <div class="sb-footer-grid">
+
+      <div class="sb-footer-brand">
+        <a href="index.html" class="logo-text">
+        <img src="assets/images/logo-dark.png" class="logo-img logo-dark" alt="SBTech Logo">
+        <img src="assets/images/logo-light.png" class="logo-img logo-light" alt="SBTech Logo">
+</a>
+
+        <p>
+          SBTech delivers enterprise cybersecurity, AI automation,
+          cloud security, managed IT, and digital transformation solutions.
+        </p>
+
+              </div>
+
+      <div class="sb-footer-col">
+        <h4>Solutions</h4>
+        <a href="solutions.html">Cybersecurity</a>
+        <a href="solutions.html">AI Automation</a>
+        <a href="solutions.html">Cloud Security</a>
+        <a href="solutions.html">Managed Security</a>
+      </div>
+
+      <div class="sb-footer-col">
+        <h4>Company</h4>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="industries.html">Industries</a>
+        <a href="insights.html">Insights</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+
+      <div class="sb-footer-col">
+        <h4>Contact</h4>
+
+        <p>
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:info@sbtech.ca">info@sbtech.ca</a>
+        </p>
+
+        <p>
+          <i class="fas fa-phone"></i>
+          <a href="tel:+14168023794">(416) 802-3794</a>
+        </p>
+
+        <p>
+          <i class="fas fa-location-dot"></i>
+       100 Mural St, Suite 100
+Richmond Hill, ON L4B 1J3
+        </p>
+
+        <a href="contact.html" class="footer-contact-btn">
+          Talk to an Expert
+        </a>
+      </div>
+
+    </div>
+
+    <div class="sb-footer-bottom">
+      <p>© <span id="copyrightYear"></span> SBTech. All rights reserved.</p>
+
+      <div>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+        <a href="cookies.html">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/navbar.js"></script>
+  <script src="js/footer.js"></script>
+
+  <script>
+    const reveals = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("show");
+      });
+    }, { threshold: .15 });
+    reveals.forEach(el => observer.observe(el));
+
+    function submitContactForm(event) {
+      event.preventDefault();
+      alert("Thank you — your request has been received. Our team will respond within 24 hours.");
+      event.target.reset();
+    }
+  </script>
+
+</body>
+
+</html>

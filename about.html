@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>if("IntersectionObserver" in window)document.documentElement.classList.add("js")</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="assets/images/favicon.png">
+<title>About Us — The People &amp; Story Behind SBTech | SBTech</title>
+<meta name="description" content="Meet Assad Khan, Founder & CEO of SBTech Inc. Senior-led managed IT, cybersecurity, AI governance, and custom ERP — delivered across Canada, the US, the Middle East, and offshore since 2021.">
+
+<link rel="stylesheet" href="css/navbar.css">
+<link rel="stylesheet" href="css/footer.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+--fd:'Fraunces',Georgia,serif;
+--fb:'Inter',sans-serif;
+--fm:'IBM Plex Mono',monospace;
+--bg:#070c16;          /* ink */
+--soft:#0a1120;        /* raised ground */
+--card:#0d1524;        /* slate panel */
+--head:#e9edf5;        /* bone */
+--text:#b8c2d4;        /* body */
+--muted:#8a96ab;       /* steel */
+--line:rgba(150,170,200,.14);
+--line-strong:rgba(150,170,200,.24);
+--accent:#4d8dff;      /* signal blue */
+--brass:#c8a35a;       /* editorial accent — scarce */
+--shadow:rgba(2,6,14,.5)
+}
+
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);overflow-x:hidden;font-family:var(--fb);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2{font-family:var(--fd);font-weight:600;color:var(--head)}
+h3,h4{font-family:var(--fb);color:var(--head)}
+::selection{background:rgba(77,141,255,.25)}
+
+/* quiet ground — one static vignette, no animation */
+.page-bg{position:fixed;inset:0;z-index:-1;background:
+ radial-gradient(1100px 600px at 78% -10%,rgba(45,80,160,.16),transparent 60%),
+ radial-gradient(900px 700px at -10% 110%,rgba(45,80,160,.10),transparent 55%),
+ var(--bg)}
+
+.eyebrow{font-family:var(--fm);font-size:12px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.eyebrow:before{content:"";width:34px;height:1px;background:var(--brass)}
+
+/* ---------- SECTION 1 — PAGE HERO ---------- */
+.hero{padding:180px 70px 110px;display:grid;grid-template-columns:1.15fr .85fr;gap:80px;align-items:center;max-width:1440px;margin:0 auto}
+.hero h1{font-size:clamp(44px,5.6vw,76px);line-height:1.04;letter-spacing:-.015em;max-width:760px;margin-bottom:28px}
+.hero h1 em{font-style:italic;font-weight:500;color:var(--head)}
+.hero p{max-width:640px;font-size:17px;line-height:1.85;color:var(--muted);margin-bottom:40px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;border-radius:4px;padding:15px 26px;font-weight:600;font-size:14px;letter-spacing:.01em;transition:background .2s,border-color .2s,color .2s}
+.btn.primary{background:var(--accent);color:#fff}
+.btn.primary:hover{background:#3d7bea}
+.btn.ghost{border:1px solid var(--line-strong);color:var(--head);background:transparent}
+.btn.ghost:hover{border-color:var(--accent);color:#fff}
+.btn i{font-size:12px}
+
+/* Portrait frame — replace the inner placeholder with:
+   <img src="assets/images/assad-khan.jpg" alt="Assad Khan, Founder & CEO of SBTech" class="headshot-img">
+   once the professional headshot is available. */
+.headshot-frame{position:relative;border:1px solid var(--line-strong);background:linear-gradient(175deg,#101a2d,#0a1120 70%);overflow:hidden;aspect-ratio:4/5;display:flex;align-items:flex-end;border-radius:6px}
+.headshot-frame:after{content:"";position:absolute;inset:14px;border:1px solid var(--line);pointer-events:none;border-radius:2px}
+.headshot-img{width:100%;height:100%;object-fit:cover;display:block}
+.headshot-frame{align-items:center;justify-content:center}
+.headshot-placeholder{position:relative;z-index:1;width:100%;padding:44px 34px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:0}
+.hs-photo{width:clamp(150px,14vw,196px);height:auto;margin-bottom:26px;filter:saturate(.92)}
+.headshot-placeholder h3{font-family:var(--fd);font-weight:600;font-size:27px;letter-spacing:-.01em;margin-bottom:10px}
+.headshot-placeholder p{font-family:var(--fm);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--brass);margin:0}
+
+/* ---------- SECTIONS ---------- */
+.section{padding:110px 70px;max-width:1440px;margin:0 auto}
+.band{border-top:1px solid var(--line)}
+.band-soft{background:var(--soft)}
+.section-head{margin-bottom:60px;max-width:860px}
+.section-head h2{font-size:clamp(34px,3.6vw,48px);letter-spacing:-.015em;line-height:1.12}
+
+/* ---------- SECTION 2 — FOUNDER BIO ---------- */
+.founder-grid{display:grid;grid-template-columns:.68fr 1.32fr;gap:70px;align-items:start}
+.founder-photo-col{position:sticky;top:120px}
+.founder-name-block{margin-top:26px;padding-top:22px;border-top:1px solid var(--line)}
+.founder-name-block h3{font-family:var(--fd);font-size:26px;font-weight:600;letter-spacing:-.01em;margin-bottom:10px}
+.founder-name-block .role{font-family:var(--fm);color:var(--brass);font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
+.founder-name-block .subrole{color:var(--muted);font-size:13.5px;line-height:1.8}
+.founder-bio p{color:var(--text);font-size:16px;line-height:1.95;margin-bottom:26px;max-width:70ch}
+.founder-bio p strong{color:var(--head);font-weight:600}
+
+.pull-quote{margin-top:44px;padding:8px 0 8px 34px;border-left:2px solid var(--brass)}
+.pull-quote blockquote{font-family:var(--fd);font-style:italic;font-weight:500;color:var(--head);font-size:clamp(21px,2vw,26px);line-height:1.55;margin-bottom:18px;max-width:32ch}
+.pull-quote cite{font-family:var(--fm);color:var(--muted);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-style:normal}
+
+/* ---------- SECTION 3 — STATS: report-style ruled grid ---------- */
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line-strong);border-radius:6px;overflow:hidden;background:var(--card)}
+.stat-card{padding:44px 34px 38px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat-card:nth-child(4n){border-right:none}
+.stat-card:nth-child(n+5){border-bottom:none}
+.stat-card h3{font-family:var(--fm);font-weight:500;font-size:clamp(32px,3vw,42px);letter-spacing:-.02em;color:var(--head);margin-bottom:14px}
+.stat-card h3 .accent{color:var(--head)}
+.stat-card p{font-family:var(--fm);color:var(--muted);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;line-height:1.7}
+
+/* ---------- SECTION 4 — STORY ---------- */
+.story-wrap{max-width:820px}
+.story-wrap p{color:var(--text);font-size:16.5px;line-height:1.95;margin-bottom:26px}
+.story-wrap p:first-child{font-family:var(--fd);font-weight:400;font-size:21px;line-height:1.7;color:var(--head)}
+.story-wrap p:last-child{margin-bottom:0}
+.story-wrap p strong{color:var(--head);font-weight:600}
+
+/* ---------- SECTION 5 — TIMELINE ---------- */
+.timeline{position:relative;max-width:820px;padding-left:44px}
+.timeline:before{content:"";position:absolute;left:5px;top:8px;bottom:8px;width:1px;background:var(--line-strong)}
+.tl-item{position:relative;padding:0 0 52px 0}
+.tl-item:last-child{padding-bottom:0}
+.tl-item:before{content:"";position:absolute;left:-43px;top:7px;width:9px;height:9px;background:var(--bg);border:1.5px solid var(--brass);transform:rotate(45deg)}
+.tl-year{font-family:var(--fm);font-weight:600;font-size:13px;letter-spacing:.2em;color:var(--brass);display:block;margin-bottom:10px}
+.tl-item h3{font-size:19px;font-weight:600;letter-spacing:-.01em;margin-bottom:10px;line-height:1.4}
+.tl-item p{color:var(--muted);font-size:15px;line-height:1.8;max-width:64ch}
+
+/* ---------- SECTION 6 — CORE VALUES ---------- */
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line-strong);border-radius:6px;overflow:hidden}
+.value-card{background:var(--card);padding:42px 36px;transition:background .25s}
+.value-card:hover{background:#111b2e}
+.value-icon{width:auto;height:auto;margin-bottom:22px}
+.value-icon i{font-size:19px;color:var(--brass)}
+.value-card h3{font-size:18px;font-weight:600;letter-spacing:-.005em;margin-bottom:12px}
+.value-card p{color:var(--muted);line-height:1.8;font-size:14.5px}
+
+/* ---------- SECTION 8 — CTA ---------- */
+.cta-wrap{padding:0 70px 120px;max-width:1440px;margin:0 auto}
+.cta-box{padding:70px;border-radius:6px;background:linear-gradient(160deg,#0c1730,#0a1120 75%);border:1px solid var(--line-strong);display:grid;grid-template-columns:1.4fr .6fr;gap:50px;align-items:center;position:relative;overflow:hidden}
+.cta-box:before{content:"";position:absolute;top:0;left:70px;right:70px;height:1px;background:linear-gradient(90deg,transparent,var(--brass),transparent);opacity:.7}
+.cta-box h2{font-size:clamp(30px,3vw,42px);letter-spacing:-.015em;line-height:1.15;margin-bottom:18px;max-width:600px}
+.cta-box p{color:var(--muted);max-width:560px;line-height:1.85;font-size:16px}
+.cta-actions{display:flex;flex-direction:column;gap:12px}
+.cta-actions .btn{justify-content:center}
+
+html.js .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+html.js .reveal.show{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){
+.reveal{opacity:1;transform:none;transition:none}
+html{scroll-behavior:auto}
+}
+
+@media(max-width:1100px){
+.hero,.founder-grid,.cta-box{grid-template-columns:1fr}
+.hero{gap:50px}
+.founder-photo-col{position:static;max-width:400px}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+.stat-card:nth-child(2n){border-right:none}
+.stat-card:nth-child(-n+6){border-bottom:1px solid var(--line)}
+.stat-card:nth-child(n+7){border-bottom:none}
+.values-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:700px){
+.hero,.section{padding-left:24px;padding-right:24px}
+.hero{padding-top:150px;padding-bottom:80px}
+.section{padding-top:80px;padding-bottom:80px}
+.cta-wrap{padding-left:24px;padding-right:24px}
+.cta-box{padding:40px 28px}
+.cta-box:before{left:28px;right:28px}
+.stats-grid,.values-grid{grid-template-columns:1fr}
+.stat-card,.stat-card:nth-child(2n){border-right:none;border-bottom:1px solid var(--line)}
+.stat-card:last-child{border-bottom:none}
+.timeline{padding-left:36px}
+.tl-item:before{left:-35px}
+.pull-quote{padding-left:24px}
+}
+
+.logo-light{display:none}
+.logo-dark{display:block}
+.logo-img{height:100px;width:auto;object-fit:contain}
+</style>
+</head>
+<body>
+
+<div class="page-bg"></div>
+
+<header class="site-header" id="siteHeader">
+  <nav class="sb-navbar">
+<a href="index.html" class="logo-text">
+  <img src="assets/images/logo-dark.png" class="logo-img logo-dark" alt="SBTech Logo">
+  <img src="assets/images/logo-light.png" class="logo-img logo-light" alt="SBTech Logo">
+</a>
+
+    <ul class="sb-nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="solutions.html">Solutions</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="industries.html">Industry</a></li>
+      <li><a href="insights.html">Insights</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <div class="sb-nav-actions">
+      <a href="contact.html" class="sb-nav-cta">Get Started</a>
+
+      <button class="sb-hamburger" id="hamburgerBtn" onclick="toggleMenu()" type="button">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+    </div>
+  </nav>
+</header>
+
+<div class="sb-mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="solutions.html" onclick="closeMenu()">Solutions</a>
+  <a href="services.html" onclick="closeMenu()">Services</a>
+  <a href="industries.html" onclick="closeMenu()">Industries</a>
+  <a href="about.html" onclick="closeMenu()">Company</a>
+  <a href="insights.html" onclick="closeMenu()">Insights</a>
+  <a href="contact.html" onclick="closeMenu()" class="mobile-cta">Get Started →</a>
+</div>
+
+<main>
+
+<!-- ============ SECTION 1 — PAGE HERO ============ -->
+<section class="hero">
+  <div>
+    <div class="eyebrow">The People &amp; Story Behind SBTech</div>
+    <h1>Built to deliver what others <em>only promise.</em></h1>
+    <p>
+      SBTech was founded on a single conviction: that enterprise-grade technology —
+      cybersecurity, AI governance, managed IT, and custom ERP — should be senior-led,
+      accountable, and built to last. Not scoped and handed off. Not outsourced to a
+      junior team. Delivered by people who own the outcome.
+    </p>
+
+    <div class="hero-actions">
+      <a href="contact.html" class="btn primary">Book a Discovery Call <i class="fas fa-arrow-right"></i></a>
+      <a href="index.html#scanner" class="btn ghost">Run a Free Security Scan</a>
+    </div>
+  </div>
+
+  <!-- Interim headshot from LinkedIn. When the high-res professional photo is ready,
+       save it as assets/images/assad-khan.jpg and swap this frame's contents for:
+       <img src="assets/images/assad-khan.jpg" alt="Assad Khan, Founder & CEO of SBTech" class="headshot-img"> -->
+  <div class="headshot-frame reveal">
+    <div class="headshot-placeholder">
+      <img src="assets/images/assad-khan.png" alt="Assad Khan, Founder & CEO of SBTech" class="hs-photo">
+      <h3>Assad Khan</h3>
+      <p>Founder &amp; CEO · SBTech Inc.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 2 — FOUNDER & CEO BIO ============ -->
+<div class="band band-soft">
+<section class="section" id="founder">
+  <div class="section-head reveal">
+    <div class="eyebrow">Leadership</div>
+    <h2>Founder &amp; CEO</h2>
+  </div>
+
+  <div class="founder-grid">
+    <div class="founder-photo-col reveal">
+      <!-- Interim headshot from LinkedIn. Swap for the high-res professional photo when ready (see note above). -->
+      <div class="headshot-frame">
+        <div class="headshot-placeholder">
+          <img src="assets/images/assad-khan.png" alt="Assad Khan, Founder & CEO of SBTech" class="hs-photo">
+          <h3>Assad Khan</h3>
+          <p>Founder &amp; CEO · SBTech Inc.</p>
+        </div>
+      </div>
+
+      <div class="founder-name-block">
+        <h3>Assad Khan</h3>
+        <div class="role">Founder &amp; CEO · SBTech Inc.</div>
+        <div class="subrole">
+          Managing Director · Smart Building Technology Inc.<br>
+          Director of Operations, North America · Six Eleven BPO
+        </div>
+      </div>
+    </div>
+
+    <div class="founder-bio reveal">
+      <p>
+        Assad Khan has spent more than fifteen years at the intersection of technology
+        delivery, business operations, and enterprise client relationships — across
+        contact centre operations, managed IT, cybersecurity, AI transformation, and
+        building intelligence. He has built and led teams across Canada, the United
+        States, the Philippines, and the Middle East, working directly with C-suite
+        executives, institutional clients, and government organizations on engagements
+        that range from custom ERP deployments to 24/7 managed security operations.
+      </p>
+
+      <p>
+        As Director of Operations for North America at <strong>Six Eleven BPO</strong> — one of the
+        Philippines' largest contact centre and outsourcing operations with over 6,000
+        employees across seven facilities — Assad leads North American business
+        development and client strategy, working directly with the CEO to originate and
+        structure enterprise client engagements across Canada and the United States.
+        That role, held since 2016, gave Assad an operational view of what enterprise
+        clients actually need from a technology and services partner: not a pitch, but
+        accountability, consistency, and delivery that improves over time.
+      </p>
+
+      <p>
+        Prior to his operational leadership role, Assad spent six years as Vice
+        President of Business Development at <strong>Empire Global Solutions Inc.</strong>, a North
+        American BPO and managed services firm. In that role he managed enterprise
+        client relationships across financial services, healthcare, and
+        telecommunications — building long-term partnerships where customer experience,
+        technology reliability, and commercial outcomes were all part of the same
+        conversation. The lesson he carried forward: the organizations that win
+        long-term are the ones who treat technology as a business outcome, not a
+        procurement event.
+      </p>
+
+      <p>
+        <strong>SBTech was founded in 2021</strong> out of a clear gap Assad kept encountering in the
+        Canadian market. Organizations were being sold technology — cybersecurity
+        tools, ERP platforms, AI solutions — by firms that implemented and disappeared.
+        Clients were left with systems they didn't fully understand, vendors they
+        couldn't hold accountable, and no one to call at 3am when something went wrong.
+        SBTech was built specifically to close that gap: senior-led delivery, managed
+        operations that continue after implementation, and a team that treats every
+        client's environment as if it were their own.
+      </p>
+
+      <p>
+        Today SBTech delivers managed IT and cybersecurity, custom ERP and systems
+        integration, AI governance and training programs, and white-label technology
+        delivery across Canada, the United States, the Middle East, and offshore.
+        Assad also leads <strong>Smart Building Technology Inc.</strong>, focused on EV
+        infrastructure, smart building systems, and intelligent facility operations —
+        bringing the same delivery philosophy to the physical built environment.
+      </p>
+
+      <div class="pull-quote">
+        <blockquote>
+          "We don't scope a project and disappear. Every engagement moves from
+          implementation into managed operations — because technology that isn't
+          actively managed is technology that eventually fails."
+        </blockquote>
+        <cite>— Assad Khan, Founder &amp; CEO, SBTech Inc.</cite>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ============ SECTION 3 — CAREER SNAPSHOT STATS ============ -->
+<div class="band">
+<section class="section" id="snapshot">
+  <div class="section-head reveal">
+    <div class="eyebrow">Company Snapshot</div>
+    <h2>The numbers behind the delivery</h2>
+  </div>
+
+  <div class="stats-grid reveal">
+    <div class="stat-card">
+      <h3><span class="accent" data-count="15" data-suffix="+">15+</span></h3>
+      <p>Years of Enterprise Technology Leadership</p>
+    </div>
+
+    <div class="stat-card">
+      <h3><span class="accent" data-count="6000" data-suffix="+" data-comma="true">6,000+</span></h3>
+      <p>BPO Professionals Across 7 Facilities</p>
+    </div>
+
+    <div class="stat-card">
+      <h3><span class="accent" data-count="4">4</span></h3>
+      <p>Delivery Regions: CA · US · ME · Offshore</p>
+    </div>
+
+    <div class="stat-card">
+      <h3><span class="accent" data-count="24" data-suffix="/7">24/7</span></h3>
+      <p>SOC &amp; NOC Operations</p>
+    </div>
+
+    <div class="stat-card">
+      <h3><span class="accent" data-count="7" data-suffix="+">7+</span></h3>
+      <p>Compliance Frameworks Delivered</p>
+    </div>
+
+    <div class="stat-card">
+      <h3><span class="accent">2021</span></h3>
+      <p>SBTech Founded · Richmond Hill, ON</p>
+    </div>
+
+    <div class="stat-card">
+      <h3><span class="accent" data-count="12" data-suffix="+">12+</span></h3>
+      <p>Industry Verticals Actively Served</p>
+    </div>
+
+    <div class="stat-card">
+      <h3><span class="accent" data-count="100" data-suffix="%">100%</span></h3>
+      <p>Data Sovereignty Guaranteed</p>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ============ SECTION 4 — COMPANY STORY / FOUNDING ============ -->
+<div class="band band-soft">
+<section class="section" id="story">
+  <div class="section-head reveal">
+    <div class="eyebrow">Our Story</div>
+    <h2>Why SBTech exists</h2>
+  </div>
+
+  <div class="story-wrap reveal">
+    <p>
+      The Canadian technology market is full of companies that will sell you a security
+      platform, implement an ERP, or build an AI program — and then hand you a manual
+      and a support ticket number. SBTech was founded specifically to change that
+      experience.
+    </p>
+
+    <p>
+      Assad Khan started SBTech in 2021 after more than a decade of watching enterprise
+      clients across financial services, healthcare, manufacturing, and the public
+      sector struggle with the same pattern: significant technology investments,
+      minimal accountability after go-live, and no senior team to call when things
+      didn't go as planned. The tools were often right. The delivery and the ongoing
+      support were almost always wrong.
+    </p>
+
+    <p>
+      SBTech was built around a different operating model. Every engagement is
+      <strong>senior-led from day one</strong>. Implementation moves directly into
+      <strong>managed operations</strong> — the same team that builds your environment monitors it,
+      maintains it, and improves it. And every deliverable is <strong>audit-ready</strong>:
+      NIST-aligned, ISO-structured, and documented in a way that holds up under
+      regulatory scrutiny.
+    </p>
+
+    <p>
+      That model — senior delivery, managed continuity, full accountability — is what
+      SBTech brings to every client, regardless of size, vertical, or geography.
+    </p>
+  </div>
+</section>
+</div>
+
+<!-- ============ SECTION 5 — COMPANY TIMELINE ============ -->
+<div class="band">
+<section class="section" id="timeline">
+  <div class="section-head reveal">
+    <div class="eyebrow">Our Journey</div>
+    <h2>Company timeline</h2>
+  </div>
+
+  <div class="timeline reveal">
+    <div class="tl-item">
+      <span class="tl-year">2014</span>
+      <h3>Business Development Manager · Tribecca Finance</h3>
+      <p>First enterprise BD role. Built a network of 30+ broker and agent partners across Ontario. Drove 60% portfolio funding growth.</p>
+    </div>
+
+    <div class="tl-item">
+      <span class="tl-year">2015</span>
+      <h3>Vice President, Business Development · Empire Global Solutions Inc.</h3>
+      <p>6-year VP role managing enterprise client relationships across financial services, healthcare, and telecommunications across North America.</p>
+    </div>
+
+    <div class="tl-item">
+      <span class="tl-year">2016</span>
+      <h3>Director of Operations, North America · Six Eleven BPO</h3>
+      <p>Joined Six Eleven — one of the Philippines' largest BPO operations. Leads North American business development, enterprise client strategy, and operational design. Still active.</p>
+    </div>
+
+    <div class="tl-item">
+      <span class="tl-year">2021</span>
+      <h3>Founded SBTech Inc. · Richmond Hill, Ontario</h3>
+      <p>SBTech launched as a senior-led managed services and technology company. Built around the gap Assad kept seeing: great implementation with no accountability after go-live.</p>
+    </div>
+
+    <div class="tl-item">
+      <span class="tl-year">2021</span>
+      <h3>Managing Director · Smart Building Technology Inc.</h3>
+      <p>Parallel practice focused on EV charging infrastructure, smart building systems, and intelligent facility operations for commercial and industrial clients.</p>
+    </div>
+
+    <div class="tl-item">
+      <span class="tl-year">2023</span>
+      <h3>Expanded to Middle East &amp; GCC Markets</h3>
+      <p>SBTech extends delivery to UAE, Saudi Arabia, and GCC. Localized ERP, cybersecurity governance, and risk advisory across one of the world's fastest-growing technology markets.</p>
+    </div>
+
+    <div class="tl-item">
+      <span class="tl-year">2026</span>
+      <h3>Launched AI Managed Services &amp; AI Governance Program</h3>
+      <p>SBTech introduces a monthly managed AI governance program — built with a live practitioner leading AI transformation inside the City of Mississauga. Now serving healthcare, financial services, retail, and construction clients.</p>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ============ SECTION 6 — CORE VALUES ============ -->
+<div class="band band-soft">
+<section class="section" id="values">
+  <div class="section-head reveal">
+    <div class="eyebrow">What We Stand For</div>
+    <h2>Our core values</h2>
+  </div>
+
+  <div class="values-grid reveal">
+    <div class="value-card">
+      <div class="value-icon"><i class="fas fa-shield-halved"></i></div>
+      <h3>Security First</h3>
+      <p>Every solution is designed with security, data sovereignty, and regulatory compliance as baseline requirements — not optional add-ons.</p>
+    </div>
+
+    <div class="value-card">
+      <div class="value-icon"><i class="fas fa-handshake"></i></div>
+      <h3>Full Accountability</h3>
+      <p>The team that builds your environment manages it. No handoffs, no disappearing after go-live. One senior team from discovery through to managed operations.</p>
+    </div>
+
+    <div class="value-card">
+      <div class="value-icon"><i class="fas fa-clipboard-check"></i></div>
+      <h3>Audit-Ready Delivery</h3>
+      <p>Every deliverable is NIST-aligned, ISO-structured, and documented to withstand regulatory scrutiny. Our clients never scramble when an auditor asks for documentation.</p>
+    </div>
+
+    <div class="value-card">
+      <div class="value-icon"><i class="fas fa-earth-americas"></i></div>
+      <h3>Built for Scale</h3>
+      <p>Four delivery regions. Cross-border expertise. Solutions designed for organizations that operate across jurisdictions, time zones, and regulatory frameworks.</p>
+    </div>
+
+    <div class="value-card">
+      <div class="value-icon"><i class="fas fa-robot"></i></div>
+      <h3>AI-First Operations</h3>
+      <p>AI is not an add-on at SBTech. It's embedded in how we govern, automate, monitor, and deliver. Every engagement benefits from intelligent operations by default.</p>
+    </div>
+
+    <div class="value-card">
+      <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
+      <h3>Sovereign by Design</h3>
+      <p>Data sovereignty is not a feature — it's the foundation. SBTech clients own their data, control where it lives, and can demonstrate that control to any regulator.</p>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ============ SECTION 8 — ABOUT PAGE CTA ============ -->
+<div class="cta-wrap">
+  <div class="cta-box reveal">
+    <div>
+      <h2>Ready to work with a team that stays accountable after day one?</h2>
+      <p>
+        Every engagement starts with a complimentary 30-minute discovery call.
+        No intake forms. No pitch decks. A real conversation with Assad Khan and
+        the SBTech senior team.
+      </p>
+    </div>
+    <div class="cta-actions">
+      <a href="contact.html" class="btn primary">Book a Discovery Call</a>
+      <a href="index.html#scanner" class="btn ghost">Run a Free Security Scan</a>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer class="sb-footer">
+  <div class="sb-footer-grid">
+
+    <div class="sb-footer-brand">
+     <a href="index.html" class="logo-text">
+  <img src="assets/images/logo-dark.png" class="logo-img logo-dark" alt="SBTech Logo">
+  <img src="assets/images/logo-light.png" class="logo-img logo-light" alt="SBTech Logo">
+</a>
+
+      <p>
+        SBTech delivers enterprise cybersecurity, AI automation,
+        cloud security, managed IT, and digital transformation solutions.
+      </p>
+
+          </div>
+
+    <div class="sb-footer-col">
+      <h4>Solutions</h4>
+      <a href="solutions.html">Cybersecurity</a>
+      <a href="solutions.html">AI Automation</a>
+      <a href="solutions.html">Cloud Security</a>
+      <a href="solutions.html">Managed Security</a>
+    </div>
+
+    <div class="sb-footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About Us</a>
+      <a href="services.html">Services</a>
+      <a href="industries.html">Industries</a>
+      <a href="insights.html">Insights</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="sb-footer-col">
+        <h4>Contact</h4>
+
+        <p>
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:info@sbtech.ca">info@sbtech.ca</a>
+        </p>
+
+        <p>
+          <i class="fas fa-phone"></i>
+          <a href="tel:+14168023794">(416) 802-3794</a>
+        </p>
+
+        <p>
+          <i class="fas fa-location-dot"></i>
+         100 Mural St, Suite 100
+Richmond Hill, ON L4B 1J3
+        </p>
+
+        <a href="contact.html" class="footer-contact-btn">
+          Talk to an Expert
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="sb-footer-bottom">
+    <p>© <span id="copyrightYear"></span> SBTech. All rights reserved.</p>
+
+    <div>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
+      <a href="cookies.html">Cookies</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/navbar.js"></script>
+<script src="js/footer.js"></script>
+
+<script>
+const reveals=document.querySelectorAll(".reveal");
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add("show");
+  });
+},{threshold:.15});
+if("IntersectionObserver" in window){reveals.forEach(el=>observer.observe(el));}
+
+/* Animated stat counters — handles suffixes (+, %, /7) and comma formatting.
+   Respects prefers-reduced-motion by setting final values instantly. */
+const reduceMotion=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+let counted=false;
+function runCounters(){
+  if(counted)return;
+  const stats=document.querySelector(".stats-grid");
+  if(!stats)return;
+  if(stats.getBoundingClientRect().top<window.innerHeight-80){
+    counted=true;
+    document.querySelectorAll("[data-count]").forEach(el=>{
+      const target=+el.dataset.count;
+      const suffix=el.dataset.suffix||"";
+      const useComma=el.dataset.comma==="true";
+      const fmt=v=>(useComma?v.toLocaleString("en-CA"):v)+suffix;
+      if(reduceMotion){el.textContent=fmt(target);return}
+      let current=0;
+      const step=Math.max(1,Math.ceil(target/45));
+      const timer=setInterval(()=>{
+        current+=step;
+        if(current>=target){current=target;clearInterval(timer)}
+        el.textContent=fmt(current);
+      },28);
+    });
+  }
+}
+window.addEventListener("scroll",runCounters);
+runCounters();
+</script>
+
+</body>
+</html>

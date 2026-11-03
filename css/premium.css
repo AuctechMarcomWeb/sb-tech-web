@@ -1,0 +1,164 @@
+/* ============================================================
+   SBTech — premium.css
+   Site-wide visual refinement layer. Loaded LAST on every page
+   so it overrides each page's inline design tokens.
+   Goals: editorial serif display, mono utility labels, one calm
+   signal-blue accent, no neon glow, no animated backgrounds.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+/* ---------- 1. Token overrides (pages using the shared system) ---------- */
+:root{
+  --fd:'Fraunces',Georgia,serif;
+  --fb:'Inter',sans-serif;
+  --fm:'IBM Plex Mono',monospace;
+
+  /* shared-system pages (solutions / services / industries / contact / old about) */
+  --primary:#4d8dff;
+  --cyan:#4d8dff;              /* retire neon cyan -> signal blue */
+  --border:rgba(150,170,200,.16);
+
+  /* index.html tokens */
+  --elec:#4d8dff;
+  --elec2:#6ea3ff;
+  --cyanbdr:rgba(77,141,255,.28);
+  --cyandim:rgba(77,141,255,.10);
+}
+
+/* ---------- 2. Typography ---------- */
+body{-webkit-font-smoothing:antialiased}
+
+h1,h2,
+.s-title,
+.gap-t,
+.wl-title{
+  font-family:'Fraunces',Georgia,serif !important;
+  font-weight:600;
+  letter-spacing:-.015em !important;
+}
+h1 em,h2 em,.s-title em{font-style:italic;font-weight:500}
+
+/* Utility / data register in mono */
+.eyebrow,.fw-lbl,.fw-chip,.prog-tier,.cap-num,.glob-reg,
+.metric-n,.prog-price,.badge,.ctag{
+  font-family:'IBM Plex Mono',monospace !important;
+}
+.eyebrow,.fw-lbl,.prog-tier,.cap-num,.glob-reg{
+  letter-spacing:.18em !important;
+  font-weight:500;
+}
+.metric-n{font-weight:500 !important;letter-spacing:-.02em !important}
+
+/* Gradient-clipped headline spans lose the rainbow — single tone */
+.hero h1 span,.s-title .st{
+  background:none !important;
+  -webkit-text-fill-color:currentColor !important;
+  color:#8fb4ff;
+}
+
+/* ---------- 3. Kill the "gamer" effects ---------- */
+.grid-bg{display:none !important}
+.orb{display:none !important}
+
+/* shine sweep on panels */
+.hero-panel:before{display:none !important}
+
+/* glowing badge dot -> quiet brass tick */
+.badge{
+  border-color:rgba(150,170,200,.24) !important;
+  background:rgba(150,170,200,.06) !important;
+  color:#9daabd !important;
+  letter-spacing:.18em !important;
+  font-size:11px !important;
+}
+.badge:before{
+  background:#c8a35a !important;
+  box-shadow:none !important;
+  width:6px !important;height:6px !important;
+  border-radius:0 !important;
+  transform:rotate(45deg);
+}
+
+/* heavy colored button glow -> flat confident fill */
+.btn.primary,.btn-p,.sb-nav-cta{
+  background:#4d8dff !important;
+  box-shadow:none !important;
+  border-radius:4px !important;
+}
+.btn.primary:hover,.btn-p:hover,.sb-nav-cta:hover{background:#3d7bea !important}
+.btn,.btn-p,.cta-btn,.prog-cta{border-radius:4px !important;box-shadow:none !important}
+
+/* card hover: lift less, glow never */
+.about-card:hover,.info-card:hover,.stat-card:hover,.value-card:hover,
+.quick-card:hover,.faq-card:hover,.cap-card:hover,.gap-card:hover,
+.glob-card:hover,.prog-card:hover{
+  transform:translateY(-3px) !important;
+  border-color:rgba(77,141,255,.45) !important;
+  box-shadow:0 14px 40px rgba(2,6,14,.4) !important;
+}
+.value-card:hover .value-icon{transform:none !important}
+
+/* rainbow icon tiles -> one restrained treatment */
+.value-icon,.about-icon,.info-icon,.stat-icon,
+.service-icon,.industry-icon,.dash-icon,.sol-icon,.why-icon,
+.quick-card i,.faq-card i,.info-item i,
+.card .icon,.sol-card .icon{
+  background:rgba(150,170,200,.07) !important;
+  border:1px solid rgba(150,170,200,.18) !important;
+  border-radius:8px !important;
+}
+.value-icon i,.about-icon i,.info-icon i,.stat-icon i,
+.service-icon i,.industry-icon i,.dash-icon i,.sol-icon i,.why-icon i,
+.card .icon i,.sol-card .icon i{
+  color:#c8a35a !important;
+  font-size:20px !important;
+}
+.value-icon,.stat-icon{width:52px !important;height:52px !important}
+.about-icon,.info-icon{width:56px !important;height:56px !important}
+
+/* ---------- 4. Structure & surfaces ---------- */
+.fw-bar{border-top:1px solid rgba(150,170,200,.14);border-bottom:1px solid rgba(150,170,200,.14)}
+.fw-chip{
+  border:1px solid rgba(150,170,200,.2) !important;
+  background:transparent !important;
+  color:#9daabd !important;
+  border-radius:3px !important;
+  font-size:11px !important;
+  letter-spacing:.08em;
+}
+
+.prog-price{color:#e9edf5 !important}
+.prog-price span{color:#8a96ab !important}
+
+/* section titles breathe more */
+.section-head h2,.s-title{line-height:1.12 !important}
+
+/* ---------- 5. Motion discipline ---------- */
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation:none !important;transition:none !important}
+  .reveal,.rv{opacity:1 !important;transform:none !important}
+}
+
+/* ---------- 6. Testimonials (homepage) ---------- */
+.tst-section{padding:110px 6vw;border-top:1px solid rgba(150,170,200,.14)}
+.tst-head{margin-bottom:56px;max-width:820px}
+.tst-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#8a96ab;display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.tst-eyebrow:before{content:"";width:34px;height:1px;background:#c8a35a}
+.tst-head h2{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:clamp(32px,3.4vw,46px);letter-spacing:-.015em;color:#e9edf5;line-height:1.12}
+.tst-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(150,170,200,.14);border:1px solid rgba(150,170,200,.24);border-radius:6px;overflow:hidden}
+.tst-card{background:#0d1524;padding:48px 44px;display:flex;flex-direction:column;gap:26px}
+.tst-quote{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(17px,1.5vw,20px);line-height:1.7;color:#e9edf5}
+.tst-quote:before{content:"\201C";display:block;font-size:44px;line-height:1;color:#c8a35a;margin-bottom:14px;font-style:normal}
+.tst-org{margin-top:auto;padding-top:22px;border-top:1px solid rgba(150,170,200,.14)}
+.tst-org strong{display:block;font-family:'IBM Plex Mono',monospace;font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#e9edf5;margin-bottom:6px}
+.tst-org span{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8a96ab}
+@media(max-width:900px){.tst-grid{grid-template-columns:1fr}.tst-card{padding:36px 28px}}
+
+
+/* standalone icon glyphs on cards -> brass, consistent */
+.quick-card>i,.faq-card>i,.info-item>i{
+  color:#c8a35a !important;
+  background:none !important;
+  border:none !important;
+}
